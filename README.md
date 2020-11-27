@@ -9,5 +9,5 @@
 	}
   
   	dependencies {
-	        implementation 'com.github.BenShanYang:Utils:Tag'
+	        implementation 'com.github.BenShanYang:Utils:1.0.0'
 	}
