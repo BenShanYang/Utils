@@ -1,8 +1,10 @@
 package com.benshanyang.toolslibrary.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
+import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.Window;
 import android.view.WindowManager;
@@ -129,4 +131,5 @@ public class DeviceUtils {
         wm.getDefaultDisplay().getMetrics(outMetrics);
         return outMetrics.heightPixels;
     }
+
 }

@@ -2,6 +2,7 @@ package com.benshanyang.toolslibrary.fingerprint;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 
 import androidx.annotation.NonNull;
@@ -54,4 +55,20 @@ public class FingerprintHelper {
             return new FingerprintHelper(this);
         }
     }
+
+    /**
+     * 获取设备是否支持指纹
+     *
+     * @param context
+     * @return true支持 false不支持
+     */
+    public static boolean checkFingerprint(Context context) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+            //确定是否指纹硬件存在和功能
+            return fingerprintManager.isHardwareDetected() && fingerprintManager.hasEnrolledFingerprints();
+        }
+        return false;
+    }
+
 }
