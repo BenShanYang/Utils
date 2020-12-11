@@ -10,5 +10,5 @@
 	}
   
   	dependencies {
-	        implementation 'com.github.BenShanYang:Utils:1.0.0'
+	        implementation 'com.github.BenShanYang:Utils:1.0.1'
 	}
