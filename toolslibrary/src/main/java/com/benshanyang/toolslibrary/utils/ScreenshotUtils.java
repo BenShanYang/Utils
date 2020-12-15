@@ -40,7 +40,14 @@ public class ScreenshotUtils {
         return compressImage(bitmap);
     }
 
-    //保存图片
+    /**
+     * 将Bitmap保存到本地
+     *
+     * @param context   上下文
+     * @param bmp       Bitmap
+     * @param imageName 图片名称
+     * @return true-保存成功 false-保存失败
+     */
     public static boolean saveBitmap(Context context, Bitmap bmp, String imageName) {
         boolean saveFlag = true;
         try {
