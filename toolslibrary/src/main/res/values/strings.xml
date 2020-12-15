@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">ToolsLibrary</string>
     <string name="toast_message">Toast message</string>
 
     <string name="error_message">This is an error toast.</string>
