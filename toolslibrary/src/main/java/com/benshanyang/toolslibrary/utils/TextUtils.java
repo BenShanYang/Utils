@@ -10,9 +10,11 @@ import android.text.style.CharacterStyle;
 import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 
-import com.benshanyang.toolslibrary.constant.Gravity;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
 /**
  * 类描述: 字符串处理工具类 </br>
@@ -23,6 +25,35 @@ import com.benshanyang.toolslibrary.constant.Gravity;
  * @since
  */
 public class TextUtils {
+
+    /**
+     * 左
+     */
+    public static final int LEFT = 0;
+    /**
+     * 上
+     */
+    public static final int TOP = 1;
+    /**
+     * 右
+     */
+    public static final int RIGHT = 2;
+    /**
+     * 下
+     */
+    public static final int BOTTOM = 3;
+    /**
+     * 中间
+     */
+    public static final int CENTER = 4;
+    /**
+     * 上下居中
+     */
+    public static final int CENTER_VERTICAL = 5;
+    /**
+     * 左右居中
+     */
+    public static final int CENTER_HORIZONTAL = 6;
 
     /**
      * 判断字符串是否为空
@@ -233,19 +264,19 @@ public class TextUtils {
     public static void setDrawable(TextView textView, Drawable imgDrawable, int drawablePadding, @Gravity int gravity) {
         if (textView != null) {
             switch (gravity) {
-                case Gravity.LEFT:
+                case LEFT:
                     //左侧icon
                     textView.setCompoundDrawablesWithIntrinsicBounds(imgDrawable, null, null, null);
                     break;
-                case Gravity.TOP:
+                case TOP:
                     //上边icon
                     textView.setCompoundDrawablesWithIntrinsicBounds(null, imgDrawable, null, null);
                     break;
-                case Gravity.RIGHT:
+                case RIGHT:
                     //右侧icon
                     textView.setCompoundDrawablesWithIntrinsicBounds(null, null, imgDrawable, null);
                     break;
-                case Gravity.BOTTOM:
+                case BOTTOM:
                     //下边icon
                     textView.setCompoundDrawablesWithIntrinsicBounds(null, null, null, imgDrawable);
                     break;
@@ -285,6 +316,14 @@ public class TextUtils {
             textView.setCompoundDrawablesWithIntrinsicBounds(leftDrawable, topDrawable, rightDrawable, bottomDrawable);
             textView.setCompoundDrawablePadding(drawablePadding);
         }
+    }
+
+    /**
+     * 描述位置的常量类
+     */
+    @IntDef({LEFT, TOP, RIGHT, BOTTOM, CENTER, CENTER_VERTICAL, CENTER_HORIZONTAL})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface Gravity {
     }
 
 }
