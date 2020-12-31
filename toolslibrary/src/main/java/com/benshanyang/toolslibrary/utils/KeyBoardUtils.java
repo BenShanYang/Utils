@@ -21,13 +21,25 @@ public class KeyBoardUtils {
      * 显示软键盘的延迟时间
      */
     public static final int SHOW_KEYBOARD_DELAY_TIME = 200;
-    private static final String TAG = "QMUIKeyboardHelper";
+    private static final String TAG = "KeyBoardUtils";
     public final static int KEYBOARD_VISIBLE_THRESHOLD_DP = 100;
 
+    /**
+     * 显示软键盘
+     *
+     * @param editText 针对给定的editText显示软键盘
+     */
     public static void showKeyboard(EditText editText) {
         showKeyboard(editText, 0);
     }
 
+    
+    /**
+     * 延时显示软键盘
+     *
+     * @param editText 针对给定的editText显示软键盘
+     * @param delay 延时时间
+     */
     public static void showKeyboard(EditText editText, boolean delay) {
         showKeyboard(editText, delay ? SHOW_KEYBOARD_DELAY_TIME : 0);
     }
