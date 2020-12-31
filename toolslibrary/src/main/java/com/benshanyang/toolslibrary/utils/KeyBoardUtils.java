@@ -49,7 +49,6 @@ public class KeyBoardUtils {
      * 针对给定的editText显示软键盘（editText会先获得焦点）. 可以和{@link #hideKeyboard(View)}
      * 搭配使用，进行键盘的显示隐藏控制。
      */
-
     public static void showKeyboard(final EditText editText, int delay) {
         if (null == editText)
             return;
