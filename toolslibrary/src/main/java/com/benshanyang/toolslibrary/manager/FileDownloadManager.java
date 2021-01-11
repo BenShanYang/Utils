@@ -26,10 +26,23 @@ public abstract class FileDownloadManager {
 
     private String path;
 
+    /**
+     * 文件下载管理类构造方法
+     *
+     * @param context 上下文
+     * @param url     下载连接
+     */
     public FileDownloadManager(Context context, String url) {
         this(context, url, getFileNameByUrl(url));
     }
 
+    /**
+     * 文件下载管理类构造方法
+     *
+     * @param context 上下文
+     * @param url     下载连接
+     * @param name    文件名称
+     */
     public FileDownloadManager(Context context, String url, String name) {
         this.context = context;
         this.url = url;
@@ -127,10 +140,23 @@ public abstract class FileDownloadManager {
 
     }
 
+    /**
+     * 下载准备
+     */
     public abstract void onPrepare();
 
+    /**
+     * 下载完成
+     *
+     * @param path 保存文件路径
+     */
     public abstract void onSuccess(String path);
 
+    /**
+     * 下载失败
+     *
+     * @param throwable 异常信息
+     */
     public abstract void onFailed(Throwable throwable);
 
 }

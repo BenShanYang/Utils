@@ -33,7 +33,7 @@ public class SPUtils {
      *
      * @param context 上下文
      * @param spName  SharedPreferences名称
-     * @return
+     * @return 当前工具类的引用
      */
     public static SPUtils init(Context context, String spName) {
         if (instance == null) {
@@ -62,7 +62,7 @@ public class SPUtils {
      *
      * @param key          SP的键名
      * @param defaultvalue 默认值
-     * @return
+     * @return 获取的值
      */
     public int getInt(String key, int defaultvalue) {
         return share.getInt(key, defaultvalue);
@@ -72,7 +72,7 @@ public class SPUtils {
      * 获取int类型的数据
      *
      * @param key SP的键名
-     * @return
+     * @return 获取的值
      */
     public int getInt(String key) {
         return share.getInt(key, 0);
@@ -94,7 +94,7 @@ public class SPUtils {
      *
      * @param key          SP的键名
      * @param defaultvalue 默认值
-     * @return
+     * @return 获取的值
      */
     public String getString(String key, String defaultvalue) {
         return share.getString(key, defaultvalue);
@@ -104,7 +104,7 @@ public class SPUtils {
      * 获取String类型的数据
      *
      * @param key SP的键名
-     * @return
+     * @return 获取的值
      */
     public String getString(String key) {
         return share.getString(key, "");
@@ -126,7 +126,7 @@ public class SPUtils {
      *
      * @param key      SP的键名
      * @param defValue 默认值
-     * @return
+     * @return 获取的值
      */
     public boolean getBoolean(String key, boolean defValue) {
         return share.getBoolean(key, defValue);
@@ -136,7 +136,7 @@ public class SPUtils {
      * 获取boolean类型的数据
      *
      * @param key SP的键名
-     * @return
+     * @return 获取的值
      */
     public boolean getBoolean(String key) {
         return share.getBoolean(key, false);
@@ -158,7 +158,7 @@ public class SPUtils {
      *
      * @param key      SP的键名
      * @param defValue 默认值
-     * @return
+     * @return 获取的值
      */
     public float getFloat(String key, float defValue) {
         return share.getFloat(key, defValue);
@@ -168,7 +168,7 @@ public class SPUtils {
      * 获取float类型的数据
      *
      * @param key SP的键名
-     * @return
+     * @return 获取的值
      */
     public float getFloat(String key) {
         return share.getFloat(key, 0f);
@@ -190,7 +190,7 @@ public class SPUtils {
      *
      * @param key      SP的键名
      * @param defValue 默认值
-     * @return
+     * @return 获取的值
      */
     public long getLong(String key, long defValue) {
         return share.getLong(key, defValue);
@@ -200,7 +200,7 @@ public class SPUtils {
      * 获取long类型的数据
      *
      * @param key SP的键名
-     * @return
+     * @return 获取的值
      */
     public long getLong(String key) {
         return share.getLong(key, 0L);
@@ -228,7 +228,7 @@ public class SPUtils {
      * 查看sp文件里面是否存在此 key
      *
      * @param key SP的键名
-     * @return
+     * @return true-存在 false-不存在
      */
     public boolean contains(String key) {
         return share.contains(key);

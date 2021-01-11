@@ -16,6 +16,7 @@ public class ClipboardUtils {
 
     /**
      * 获取剪切板的内容
+     *
      * @param context 上下文
      * @return 返回剪切板的内容
      */
@@ -28,10 +29,10 @@ public class ClipboardUtils {
         if (cm != null) {
             data = cm.getPrimaryClip();
         }
-        if(data != null){
+        if (data != null) {
             item = data.getItemAt(0);
         }
-        if(item != null){
+        if (item != null) {
             content = item.getText();
         }
         return content != null ? content.toString() : "";
@@ -39,16 +40,17 @@ public class ClipboardUtils {
 
     /**
      * 复制文字
+     *
      * @param context 上下文
-     * @param str 要复制的内容
-     * @return
+     * @param str     要复制的内容
+     * @return true-复制成功 false-复制失败
      */
-    public static boolean copy(Context context, String str){
+    public static boolean copy(Context context, String str) {
         ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData data = ClipData.newPlainText("clipboard", str);
-        if(cm==null || data==null){
+        if (cm == null || data == null) {
             return false;
-        }else{
+        } else {
             cm.setPrimaryClip(data);
             return true;
         }
@@ -56,17 +58,18 @@ public class ClipboardUtils {
 
     /**
      * 复制文字
+     *
      * @param context 上下文
-     * @param label 将此剪切板的描述展示给用户
-     * @param str 要复制的内容
-     * @return
+     * @param label   将此剪切板的描述展示给用户
+     * @param str     要复制的内容
+     * @return true-复制成功 false-复制失败
      */
-    public static boolean copy(Context context, String label, String str){
+    public static boolean copy(Context context, String label, String str) {
         ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData data = ClipData.newPlainText(label, str);
-        if(cm==null || data==null){
+        if (cm == null || data == null) {
             return false;
-        }else{
+        } else {
             cm.setPrimaryClip(data);
             return true;
         }

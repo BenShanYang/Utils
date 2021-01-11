@@ -15,7 +15,10 @@ import androidx.annotation.IdRes;
  */
 public class SingleClickUtils {
 
-    public static int INTERVAL = 500;  // 快速点击间隔
+    /**
+     * 快速点击间隔 毫秒
+     */
+    public static int INTERVAL = 500;
 
     /**
      * 控件去重复点击

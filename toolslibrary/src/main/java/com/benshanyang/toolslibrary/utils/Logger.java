@@ -12,9 +12,13 @@ import android.util.Log;
  */
 public class Logger {
 
-    /** 日志开关 */
+    /**
+     * 日志开关
+     */
     public static boolean isDebug = true;
-    /** 设置默认的 */
+    /**
+     * 设置默认的
+     */
     public static String appTag = "Logger";
 
     /**
@@ -42,19 +46,21 @@ public class Logger {
 
     /**
      * 输出格式定义
+     *
      * @param msg 要打印的消息
      */
     private static String getMsgFormat(String msg) {
         String prefix = getFunctionName();
-        if(TextUtils.isEmpty(prefix)){
+        if (TextUtils.isEmpty(prefix)) {
             return msg;
-        }else{
+        } else {
             return prefix + " -- " + msg;
         }
     }
 
     /**
      * 设置Verbose日志
+     *
      * @param msg 日志信息
      */
     public static void v(String msg) {
@@ -65,6 +71,7 @@ public class Logger {
 
     /**
      * 设置Verbose日志
+     *
      * @param tag 日志标签
      * @param msg 日志信息
      */
@@ -76,6 +83,7 @@ public class Logger {
 
     /**
      * 设置Debug日志
+     *
      * @param msg 日志信息
      */
     public static void d(String msg) {
@@ -86,6 +94,7 @@ public class Logger {
 
     /**
      * 设置Debug日志
+     *
      * @param tag 日志标签
      * @param msg 日志信息
      */
@@ -97,6 +106,7 @@ public class Logger {
 
     /**
      * 设置Info日志
+     *
      * @param msg 日志信息
      */
     public static void i(String msg) {
@@ -107,6 +117,7 @@ public class Logger {
 
     /**
      * 设置Info日志
+     *
      * @param tag 日志标签
      * @param msg 日志信息
      */
@@ -118,6 +129,7 @@ public class Logger {
 
     /**
      * 设置Warn日志
+     *
      * @param msg 日志信息
      */
     public static void w(String msg) {
@@ -128,6 +140,7 @@ public class Logger {
 
     /**
      * 设置Warn日志
+     *
      * @param tag 日志标签
      * @param msg 日志信息
      */
@@ -139,6 +152,7 @@ public class Logger {
 
     /**
      * 设置Error日志
+     *
      * @param msg 日志信息
      */
     public static void e(String msg) {
@@ -149,6 +163,7 @@ public class Logger {
 
     /**
      * 设置Error日志
+     *
      * @param tag 日志标签
      * @param msg 日志信息
      */

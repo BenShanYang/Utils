@@ -16,8 +16,8 @@ public class CacheUtils {
     /**
      * 获取缓存大小
      *
-     * @param context
-     * @return
+     * @param context 上下文
+     * @return 获取的缓存大小, String类型
      * @throws Exception
      */
     public static String getTotalCacheSize(Context context) {
@@ -31,7 +31,7 @@ public class CacheUtils {
     /**
      * 清除缓存
      *
-     * @param context
+     * @param context 上下文
      */
     public static void clearAllCache(Context context) {
         try {
@@ -81,7 +81,7 @@ public class CacheUtils {
     /**
      * 格式化单位
      *
-     * @param size
+     * @param size 所要格式化的大小
      * @return
      */
     private static String getFormatSize(double size) {

@@ -18,9 +18,9 @@ public class SMSUtils {
     /**
      * 调起系统发短信功能 需要添加发送短信的权限 <uses-permission android:name="android.permission.SEND_SMS" />
      *
-     * @param context
-     * @param phoneNumber
-     * @param message
+     * @param context     上下文
+     * @param phoneNumber 手机号码
+     * @param message     发送的信息
      */
     public void sendSMS(Context context, String phoneNumber, String message) {
         if (PhoneNumberUtils.isGlobalPhoneNumber(phoneNumber)) {

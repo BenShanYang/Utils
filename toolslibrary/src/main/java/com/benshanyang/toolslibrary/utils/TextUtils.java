@@ -59,7 +59,7 @@ public class TextUtils {
      * 判断字符串是否为空
      *
      * @param str 输入的内容
-     * @return
+     * @return true-为空 false-不为空
      */
     public static boolean isEmpty(CharSequence str) {
         return (str == null || str.length() == 0);
@@ -70,7 +70,7 @@ public class TextUtils {
      *
      * @param str    字符串
      * @param isTrim 是否将前后空格也算做内容
-     * @return
+     * @return true-为空 false-不为空
      */
     public static boolean isEmpty(CharSequence str, boolean isTrim) {
         if (isTrim) {
@@ -138,7 +138,7 @@ public class TextUtils {
      *
      * @param a 字符串a
      * @param b 字符串b
-     * @return
+     * @return true-相等 false-不相等
      */
     public static boolean equals(CharSequence a, CharSequence b) {
         if (a == b) return true;
@@ -159,7 +159,7 @@ public class TextUtils {
     /**
      * 为TextView设置Drawable图片
      *
-     * @param textView
+     * @param textView     文字控件 TextView
      * @param charSequence 设置的文字
      * @param resId        图片的资源id
      * @param gravity      位置
@@ -171,7 +171,7 @@ public class TextUtils {
     /**
      * 为TextView设置Drawable图片
      *
-     * @param textView
+     * @param textView        文字控件 TextView
      * @param charSequence    设置的文字
      * @param resId           图片的资源id
      * @param drawablePadding 文字和Icon的距离
@@ -189,7 +189,7 @@ public class TextUtils {
     /**
      * 为TextView设置Drawable图片
      *
-     * @param textView
+     * @param textView     文字控件 TextView
      * @param charSequence 设置的文字
      * @param imgDrawable  图片
      * @param gravity      位置
@@ -201,7 +201,7 @@ public class TextUtils {
     /**
      * 为TextView设置Drawable图片
      *
-     * @param textView
+     * @param textView        文字控件 TextView
      * @param charSequence    设置的文字
      * @param imgDrawable     图片
      * @param drawablePadding 文字和Icon的距离
@@ -217,7 +217,7 @@ public class TextUtils {
     /**
      * 为TextView设置Drawable图片
      *
-     * @param textView
+     * @param textView 文字控件 TextView
      * @param resId    图片的资源id
      * @param gravity  位置
      */
@@ -228,7 +228,7 @@ public class TextUtils {
     /**
      * 为TextView设置Drawable图片
      *
-     * @param textView
+     * @param textView        文字控件 TextView
      * @param resId           图片的资源id
      * @param drawablePadding 图片和文字的间距
      * @param gravity         位置
@@ -245,7 +245,7 @@ public class TextUtils {
     /**
      * 为TextView设置Drawable图片
      *
-     * @param textView
+     * @param textView    文字控件 TextView
      * @param imgDrawable 图片
      * @param gravity     位置
      */
@@ -256,7 +256,7 @@ public class TextUtils {
     /**
      * 为TextView设置Drawable图片
      *
-     * @param textView
+     * @param textView        文字控件 TextView
      * @param imgDrawable     图片
      * @param drawablePadding 图片和文字的间距
      * @param gravity         位置
@@ -288,7 +288,7 @@ public class TextUtils {
     /**
      * 为TextView设置Drawable图片
      *
-     * @param textView
+     * @param textView        文字控件 TextView
      * @param drawablePadding 图片和文字的间距
      * @param leftDrawable    左图片
      * @param topDrawable     上图片
@@ -302,7 +302,7 @@ public class TextUtils {
     /**
      * 为TextView设置Drawable图片
      *
-     * @param textView
+     * @param textView        文字控件 TextView
      * @param charSequence    文字内容
      * @param drawablePadding 图片和文字的间距
      * @param leftDrawable    左图片

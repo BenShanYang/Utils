@@ -24,8 +24,8 @@ public class DeviceUtils {
     /**
      * 获取状态栏高度
      *
-     * @param context
-     * @return
+     * @param context 上下文
+     * @return 返回状态栏的高度
      */
     public static int getStatusBarHeight(Context context) {
         if (isXiaomi()) {
@@ -86,7 +86,7 @@ public class DeviceUtils {
     /**
      * 判断是否为小米
      */
-    public static boolean isXiaomi() {
+    private static boolean isXiaomi() {
         //https://dev.mi.com/doc/?p=254
         return Build.MANUFACTURER.toLowerCase().equals("xiaomi");
     }
@@ -94,12 +94,12 @@ public class DeviceUtils {
     /**
      * 获得设备屏幕密度
      *
-     * @param context
-     * @return
+     * @param activity 上下文
+     * @return 设备屏幕密度
      */
-    public static float getDisplayMetrics(Activity context) {
+    public static float getDisplayMetrics(Activity activity) {
         DisplayMetrics dm = new DisplayMetrics();
-        context.getWindowManager().getDefaultDisplay().getMetrics(dm);
+        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
         return dm.density;
     }
 
@@ -107,8 +107,8 @@ public class DeviceUtils {
     /**
      * 获得屏幕高度
      *
-     * @param context
-     * @return
+     * @param context 上下文
+     * @return 屏幕高度
      */
     public static int getScreenWidth(Context context) {
         WindowManager wm = (WindowManager) context
@@ -121,8 +121,8 @@ public class DeviceUtils {
     /**
      * 获得屏幕宽度
      *
-     * @param context
-     * @return
+     * @param context 上下文
+     * @return 屏幕宽度
      */
     public static int getScreenHeight(Context context) {
         WindowManager wm = (WindowManager) context

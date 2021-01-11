@@ -3,9 +3,10 @@ package com.benshanyang.toolslibrary.fingerprint;
 import android.content.Context;
 
 /**
- * Created by 王鹏程 on 2019/9/4.
- * 类(IFingerprint)解释:
- * 指纹接口
+ * @ClassName: IFingerprint
+ * @Description: 指纹接口
+ * @Author: YangKuan
+ * @CreateDate: 2021/1/11 10:48
  */
 interface IFingerprint {
     /**

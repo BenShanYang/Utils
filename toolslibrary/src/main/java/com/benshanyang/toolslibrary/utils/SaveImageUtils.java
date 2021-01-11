@@ -119,8 +119,8 @@ public class SaveImageUtils {
     /**
      * Drawable转换成Bitmap
      *
-     * @param drawable
-     * @return
+     * @param drawable 源图片的Drawable
+     * @return 转换后的Bitmap
      */
     public static Bitmap drawable2Bitmap(Drawable drawable) {
         if (drawable instanceof BitmapDrawable) {

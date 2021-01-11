@@ -413,7 +413,7 @@ public class FileUtils {
     /**
      * 删除文件或目录
      *
-     * @param file
+     * @param file 要删除的文件
      * @return
      */
     public static boolean deleteDirOrFile(File file) {
@@ -429,7 +429,7 @@ public class FileUtils {
     /**
      * 删除文件或目录
      *
-     * @param path
+     * @param path 要删除的文件路径
      * @return
      */
     public static boolean deleteDirOrFile(String path) {
@@ -465,7 +465,7 @@ public class FileUtils {
     /**
      * 删除Luban文件集合 以“|” 分割
      *
-     * @param srcFilePaths
+     * @param srcFilePaths 文件路径
      */
     public static void deleteFiles(String srcFilePaths) {
         if (TextUtils.isEmpty(srcFilePaths))

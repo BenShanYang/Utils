@@ -59,7 +59,7 @@ public class FingerprintHelper {
     /**
      * 获取设备是否支持指纹
      *
-     * @param context
+     * @param context 上下文
      * @return true支持 false不支持
      */
     public static boolean checkFingerprint(Context context) {

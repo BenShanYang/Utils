@@ -15,30 +15,11 @@ final class CloseUtils {
     }
 
     /**
-     * Close the io stream.
+     * 关闭IO流
      *
-     * @param closeables closeables
+     * @param closeables 所要关闭的Closeable
      */
     public static void closeIO(final Closeable... closeables) {
-        if (closeables != null) {
-            for (Closeable closeable : closeables) {
-                try {
-                    if (closeable != null) {
-                        closeable.close();
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /**
-     * Close the io stream quietly.
-     *
-     * @param closeables closeables
-     */
-    public static void closeIOQuietly(final Closeable... closeables) {
         if (closeables != null) {
             for (Closeable closeable : closeables) {
                 try {
