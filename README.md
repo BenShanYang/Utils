@@ -14,3 +14,5 @@
   	dependencies {
 		implementation 'com.github.BenShanYang:Utils:1.0.4'
 	}
+
+[XFrame详细功能文档预览](https://github.com/BenShanYang/JavaDoc/blob/main/index.html)
