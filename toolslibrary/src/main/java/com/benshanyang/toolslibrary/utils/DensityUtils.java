@@ -14,6 +14,7 @@ public class DensityUtils {
 
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     *
      * @param context
      * @param dpValue
      * @return
@@ -25,6 +26,7 @@ public class DensityUtils {
 
     /**
      * 将px转换为与之相等的dp
+     *
      * @param context
      * @param pxValue
      * @return
@@ -36,6 +38,7 @@ public class DensityUtils {
 
     /**
      * 将px值转换为sp值，保证文字大小不变
+     *
      * @param context
      * @param pxValue
      * @return
@@ -47,6 +50,7 @@ public class DensityUtils {
 
     /**
      * 将sp值转换为px值，保证文字大小不变
+     *
      * @param context
      * @param spValue
      * @return
