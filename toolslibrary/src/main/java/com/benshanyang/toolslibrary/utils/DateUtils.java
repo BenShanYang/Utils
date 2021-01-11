@@ -15,17 +15,18 @@ public class DateUtils {
 
     /**
      * 通过时间戳获取格式化后的时间串
+     *
      * @param timeStamp 时间戳(毫秒)
-     * @param template 格式化模板。例如: yyyy-MM-dd HH:mm:ss
-     * @return
+     * @param template  格式化模板。例如: yyyy-MM-dd HH:mm:ss
+     * @return 返回格式化后的日期格式
      */
-    public static String formatTimeStamp(Long timeStamp, String template){
+    public static String formatTimeStamp(Long timeStamp, String template) {
         String templateStr = "yyyy-MM-dd HH:mm:ss";
-        if(!TextUtils.isEmpty(template)){
+        if (!TextUtils.isEmpty(template)) {
             templateStr = template;
         }
-        SimpleDateFormat format=new SimpleDateFormat(templateStr);
-        Date date=new Date(timeStamp);
+        SimpleDateFormat format = new SimpleDateFormat(templateStr);
+        Date date = new Date(timeStamp);
         return format.format(date);
     }
 }

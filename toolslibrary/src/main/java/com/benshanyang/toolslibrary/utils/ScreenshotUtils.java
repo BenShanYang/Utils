@@ -30,8 +30,8 @@ public class ScreenshotUtils {
     /**
      * 截取scrollview的屏幕
      *
-     * @param viewGroup
-     * @return
+     * @param viewGroup 所要截图的父布局
+     * @return 截图后的Bitmap
      */
     public static Bitmap getBitmapByView(ViewGroup viewGroup) {
         // 创建对应大小的bitmap
@@ -89,8 +89,8 @@ public class ScreenshotUtils {
     /**
      * 压缩图片
      *
-     * @param image
-     * @return
+     * @param image 源图片的Bitmap
+     * @return 压缩后图片的Bitmap
      */
     private static Bitmap compressImage(Bitmap image) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

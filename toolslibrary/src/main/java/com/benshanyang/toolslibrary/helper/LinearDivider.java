@@ -32,7 +32,7 @@ public class LinearDivider extends RecyclerView.ItemDecoration {
     /**
      * 默认分割线：高度为2px，颜色为灰色
      *
-     * @param context
+     * @param context     上下文
      * @param orientation 列表方向
      */
     public LinearDivider(Context context, int orientation) {
@@ -51,7 +51,7 @@ public class LinearDivider extends RecyclerView.ItemDecoration {
     /**
      * 自定义分割线
      *
-     * @param context
+     * @param context     上下文
      * @param orientation 列表方向
      * @param drawableId  分割线图片
      */
@@ -65,12 +65,11 @@ public class LinearDivider extends RecyclerView.ItemDecoration {
     /**
      * 自定义分割线
      *
-     * @param context
+     * @param context       上下文
      * @param orientation   列表方向
      * @param dividerHeight 分割线高度
      * @param dividerColor  分割线颜色
      */
-
     public LinearDivider(Context context, int orientation, int dividerHeight, int dividerColor) {
         this(context, orientation);
         mDividerHeight = dividerHeight;
@@ -79,7 +78,14 @@ public class LinearDivider extends RecyclerView.ItemDecoration {
         mPaint.setStyle(Paint.Style.FILL);
     }
 
-    //获取分割线尺寸
+    /**
+     * 获取分割线尺寸
+     *
+     * @param outRect
+     * @param view
+     * @param parent
+     * @param state
+     */
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
@@ -91,7 +97,13 @@ public class LinearDivider extends RecyclerView.ItemDecoration {
     }
 
 
-    //绘制分割线
+    /**
+     * 绘制分割线
+     *
+     * @param c
+     * @param parent
+     * @param state
+     */
     @Override
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
         super.onDraw(c, parent, state);

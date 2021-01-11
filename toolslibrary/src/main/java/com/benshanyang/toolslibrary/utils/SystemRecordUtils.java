@@ -57,8 +57,7 @@ public class SystemRecordUtils {
     /**
      * 调用系统相机录视视频
      *
-     * @param activity
-     * @return
+     * @param activity 上下文
      */
     public static void recordVideo(Activity activity) {
         recordVideo(activity, null, null, SYSTEM_RECORD_REQUESTCODE);
@@ -67,7 +66,7 @@ public class SystemRecordUtils {
     /**
      * 调用系统相机录视视频
      *
-     * @param activity
+     * @param activity 上下文
      * @param fileName 视频名称
      */
     public static void recordVideo(Activity activity, String fileName) {
@@ -77,7 +76,7 @@ public class SystemRecordUtils {
     /**
      * 调用系统相机录视视频
      *
-     * @param activity
+     * @param activity 上下文
      * @param filePath 视频所在文件夹路径
      * @param fileName 视频名称
      */
@@ -88,7 +87,7 @@ public class SystemRecordUtils {
     /**
      * 调用系统相机录视视频
      *
-     * @param activity
+     * @param activity    上下文
      * @param filePath    视频所在文件夹路径
      * @param fileName    视频名称
      * @param requestCode 请求码
@@ -100,7 +99,7 @@ public class SystemRecordUtils {
     /**
      * 调用系统相机录视视频
      *
-     * @param activity
+     * @param activity    上下文
      * @param filePath    视频所在文件夹路径
      * @param fileName    视频名称
      * @param quality     录制视频的质量，从 0-1，越大表示质量越好，同时视频也越大
@@ -136,7 +135,7 @@ public class SystemRecordUtils {
     /**
      * 获取视频信息
      *
-     * @param context
+     * @param context  上下文
      * @param videoUri 视频的Uri
      *                 通过 onActivityResult(int requestCode, int resultCode, Intent data) 方法的intent 获取 Uri videoUri = data.getData();
      * @return 返回视频信息

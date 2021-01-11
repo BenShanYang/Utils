@@ -119,6 +119,8 @@ public abstract class BaseParentActivity extends FragmentActivity {
 
     /**
      * 弹出提示
+     *
+     * @param message 提示的信息
      */
     public void showToast(CharSequence message) {
         if (message != null) {
@@ -133,6 +135,9 @@ public abstract class BaseParentActivity extends FragmentActivity {
 
     /**
      * 弹出提示
+     *
+     * @param message 提示的信息
+     * @param gravity 位于屏幕中的位置。例: Gravity.BOTTOM
      */
     public void showToast(CharSequence message, int gravity) {
         if (message != null) {
@@ -147,6 +152,11 @@ public abstract class BaseParentActivity extends FragmentActivity {
 
     /**
      * 弹出提示
+     *
+     * @param message 提示的信息
+     * @param gravity 位于屏幕中的位置。例: Gravity.BOTTOM
+     * @param xOffset x轴上的偏移量
+     * @param yOffset y轴上的偏移量
      */
     public void showToast(CharSequence message, int gravity, int xOffset, int yOffset) {
         if (message != null) {

@@ -25,6 +25,12 @@ public class GridDivider extends RecyclerView.ItemDecoration {
     public GridDivider() {
     }
 
+    /**
+     * 网格分割线的帮助类构造方法
+     *
+     * @param borderColor 分割线颜色
+     * @param borderWidth 分割线粗细
+     */
     public GridDivider(@ColorInt int borderColor, int borderWidth) {
         this.borderColor = borderColor;
         this.borderWidth = borderWidth;
@@ -34,7 +40,7 @@ public class GridDivider extends RecyclerView.ItemDecoration {
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
         int column = 0;//网格列表的列数
         RecyclerView.LayoutManager layoutManager = parent.getLayoutManager();
-        if(layoutManager instanceof GridLayoutManager){
+        if (layoutManager instanceof GridLayoutManager) {
             //获取网格列表的列数
             column = ((GridLayoutManager) layoutManager).getSpanCount();
         }

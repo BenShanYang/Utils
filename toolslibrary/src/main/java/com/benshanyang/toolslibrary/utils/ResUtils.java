@@ -25,9 +25,10 @@ public class ResUtils {
 
     /**
      * 获取资源文件中的Drawable
+     *
      * @param context 上下文
-     * @param resId drawable的资源id
-     * @return
+     * @param resId   drawable的资源id
+     * @return 获取的Drawable
      */
     public static Drawable getDrawable(@NonNull Context context, @DrawableRes int resId) {
         return AppCompatResources.getDrawable(context, resId);
@@ -35,9 +36,10 @@ public class ResUtils {
 
     /**
      * 获取资源文件中的字符串
+     *
      * @param context 上下文
-     * @param resId 字符串的资源id
-     * @return
+     * @param resId   字符串的资源id
+     * @return 获取的字符串
      */
     @NonNull
     public static String getString(Context context, @StringRes int resId) {
@@ -46,9 +48,10 @@ public class ResUtils {
 
     /**
      * 获取资源文件中的字符串数组
+     *
      * @param context 上下文
-     * @param resId 字符串数组的资源id
-     * @return
+     * @param resId   字符串数组的资源id
+     * @return 获取的字符串数组
      */
     @NonNull
     public static String[] getStrings(Context context, @ArrayRes int resId) {
@@ -57,20 +60,22 @@ public class ResUtils {
 
     /**
      * 获取资源文件中的颜色
+     *
      * @param context 上下文
-     * @param color 颜色的资源id
-     * @return
+     * @param color   颜色的资源id
+     * @return 获取的颜色色值
      */
     @ColorInt
-    public static int getColor(@NonNull Context context, @ColorRes int color){
+    public static int getColor(@NonNull Context context, @ColorRes int color) {
         return ContextCompat.getColor(context, color);
     }
 
     /**
      * 获取资源文件中的颜色样式文件
+     *
      * @param context 上下文
-     * @param resId 颜色样式文件的资源id
-     * @return
+     * @param resId   颜色样式文件的资源id
+     * @return 获取的颜色 ColorStateList
      */
     @NonNull
     public static ColorStateList getColorStateList(Context context, @ColorRes int resId) {

@@ -11,7 +11,7 @@ import java.util.Stack;
 
 /**
  * @ClassName: ActivityStackManager
- * @Description: activity栈
+ * @Description: Activity栈
  * @Author: YangKuan
  * @Date: 2020/6/30 10:20
  */
