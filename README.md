@@ -15,4 +15,4 @@
 		implementation 'com.github.BenShanYang:Utils:1.0.4'
 	}
 
-[Utils Api文档](https://github.com/BenShanYang/JavaDoc/blob/main/index.html)
+[Utils Api文档](https://github.com/BenShanYang/JavaDoc)
