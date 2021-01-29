@@ -157,6 +157,16 @@ public class TextUtils {
     }
 
     /**
+     * 获取字符串的长度
+     *
+     * @param str 输入的字符串
+     * @return 字符串的长度
+     */
+    public static int length(CharSequence str) {
+        return isEmpty(str) ? 0 : str.length();
+    }
+
+    /**
      * 为TextView设置Drawable图片
      *
      * @param textView     文字控件 TextView
