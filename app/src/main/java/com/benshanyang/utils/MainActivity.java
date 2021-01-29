@@ -1,10 +1,12 @@
 package com.benshanyang.utils;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.benshanyang.toolslibrary.base.BaseParentActivity;
 import com.benshanyang.toolslibrary.fingerprint.FingerprintCallback;
 import com.benshanyang.toolslibrary.fingerprint.FingerprintHelper;
+import com.benshanyang.toolslibrary.utils.NetUtils;
 
 public class MainActivity extends BaseParentActivity {
 
@@ -71,5 +73,9 @@ public class MainActivity extends BaseParentActivity {
                     }
                 });
         builder.build();
+    }
+
+    public void onClick(View view) {
+
     }
 }
