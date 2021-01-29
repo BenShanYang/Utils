@@ -36,7 +36,7 @@ public class IDCardUtils {
      * 身份证校验
      *
      * @param idCardNumber 需要验证的身份证
-     * @return 身份证无误返回传入的身份证号
+     * @return true验证通过，false验证失败
      */
     public static boolean validate(String idCardNumber) {
         String idNumber = idCardNumber.trim();
