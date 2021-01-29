@@ -12,7 +12,7 @@
 	}
   
   	dependencies {
-		implementation 'com.github.BenShanYang:Utils:1.0.5'
+		implementation 'com.github.BenShanYang:Utils:1.0.6'
 	}
 
 [Utils Api文档](https://github.com/BenShanYang/JavaDoc)
