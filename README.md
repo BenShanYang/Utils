@@ -57,12 +57,27 @@ public class MainActivity extends BaseParentActivity {
 ```java
 public abstract class BaseParentActivity extends FragmentActivity {
 
+    public Activity activity;
+    private Toast toast = null;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        activity = BaseParentActivity.this;
+    }
+
     /**
      * 设置 app 不随着系统字体的调整而变化
      */
     @Override
     public Resources getResources() {
-        ......
+        Resources res = super.getResources();
+        if (res.getConfiguration().fontScale != 1) {//非默认值
+            Configuration newConfig = new Configuration();
+            newConfig.setToDefaults();//设置默认
+            res.updateConfiguration(newConfig, res.getDisplayMetrics());
+        }
+        return res;
     }
 
     /**
@@ -73,7 +88,11 @@ public abstract class BaseParentActivity extends FragmentActivity {
      */
     @ColorInt
     public int getResColor(@ColorRes int id) {
-        ......
+        try {
+            return getResources().getColor(id);
+        } catch (Exception e) {
+            return Color.TRANSPARENT;
+        }
     }
 
     /**
@@ -83,7 +102,11 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @return 返回的资源文件
      */
     public Drawable getResDrawable(@DrawableRes int id) {
-        ......
+        try {
+            return getResources().getDrawable(id);
+        } catch (Exception e) {
+            return new ColorDrawable(Color.TRANSPARENT);
+        }
     }
 
     /**
@@ -93,7 +116,7 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @return 返回的布局view
      */
     public View getLayout(@LayoutRes int resource) {
-        ......
+        return LayoutInflater.from(activity).inflate(resource, null);
     }
 
     /**
@@ -104,7 +127,7 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @return 返回的布局view
      */
     public View getLayout(@LayoutRes int resource, @Nullable ViewGroup root) {
-        ......
+        return LayoutInflater.from(activity).inflate(resource, root);
     }
 
     /**
@@ -116,7 +139,7 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @return 返回的布局view
      */
     public View getLayout(@LayoutRes int resource, @Nullable ViewGroup root, boolean attachToRoot) {
-        ......
+        return LayoutInflater.from(activity).inflate(resource, root, attachToRoot);
     }
 
     /**
@@ -125,7 +148,14 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @param message 提示的信息
      */
     public void showToast(CharSequence message) {
-        ......
+        if (message != null) {
+            if (toast == null) {
+                toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.BOTTOM, 0, dp2px(this, 100));
+            }
+            toast.setText(message);
+            toast.show();
+        }
     }
 
     /**
@@ -135,7 +165,14 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @param gravity 位于屏幕中的位置。例: Gravity.BOTTOM
      */
     public void showToast(CharSequence message, int gravity) {
-        ......
+        if (message != null) {
+            if (toast == null) {
+                toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+                toast.setGravity(gravity, 0, 0);
+            }
+            toast.setText(message);
+            toast.show();
+        }
     }
 
     /**
@@ -147,7 +184,14 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @param yOffset y轴上的偏移量
      */
     public void showToast(CharSequence message, int gravity, int xOffset, int yOffset) {
-        ......
+        if (message != null) {
+            if (toast == null) {
+                toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+                toast.setGravity(gravity, xOffset, yOffset);
+            }
+            toast.setText(message);
+            toast.show();
+        }
     }
 
     /**
@@ -156,7 +200,7 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @param text 提示的文字
      */
     public void showSnackbar(CharSequence text) {
-        ......
+        Snackbar.make(findViewById(android.R.id.content), text, Snackbar.LENGTH_SHORT).show();
     }
 
     /**
@@ -165,7 +209,7 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @param clazz 指定Activity
      */
     public void toActivity(Class<?> clazz) {
-        ......
+        startActivity(new Intent(this, clazz));
     }
 
     /**
@@ -175,7 +219,7 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @param requestCode 请求码
      */
     public void toActivity(Class<?> clazz, int requestCode) {
-        ......
+        startActivityForResult(new Intent(this, clazz), requestCode);
     }
 
     /**
@@ -185,7 +229,10 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @param requestCode 请求码
      */
     public void toActivity(Class<?> clazz, long requestCode) {
-        ......
+        Intent intent = new Intent();
+        intent.setClass(this, clazz);
+        intent.putExtra("requestCode", requestCode);
+        startActivity(intent);
     }
 
     /**
@@ -196,7 +243,11 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @param requestCode 请求码
      */
     public void toActivity(Class<?> clazz, Bundle bundle, long requestCode) {
-        ......
+        Intent intent = new Intent();
+        intent.setClass(this, clazz);
+        intent.putExtra("requestCode", requestCode);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
     /**
@@ -206,7 +257,9 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @param bundle 携带的数据源
      */
     public void toActivity(Class<?> clazz, Bundle bundle) {
-        ......
+        Intent intent = new Intent(this, clazz);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
     /**
@@ -217,7 +270,10 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @param requestCode 请求码
      */
     public void toActivity(Class<?> clazz, Bundle bundle, int requestCode) {
-        ......
+        Intent intent = new Intent(this, clazz);
+        intent.putExtra("requestCode", requestCode);
+        intent.putExtras(bundle);
+        startActivityForResult(intent, requestCode);
     }
 
     /**
@@ -226,7 +282,12 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @return
      */
     public Bundle getBundle() {
-        ......
+        Intent intent = getIntent();
+        Bundle bundle = null;
+        if (intent != null) {
+            bundle = intent.getExtras();
+        }
+        return bundle;
     }
 
     /**
@@ -237,7 +298,8 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @return
      */
     public int dp2px(Context context, float dpValue) {
-        ......
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
     }
 
     /**
@@ -248,7 +310,8 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @return
      */
     public int sp2px(Context context, float spValue) {
-        ......
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
     }
 
     /**
@@ -257,8 +320,295 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @return
      */
     public long getRequestCode() {
-        ......
+        Intent intent = getIntent();
+        if (intent != null) {
+            return intent.getLongExtra("requestCode", -1L);
+        }
+        return -1L;
     }
+}
+```
+
+### BaseParentFragment
+#### 使用
+```java
+public class CustomFragment extends BaseParentFragment {
+
+    @Override
+    public void initView(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        
+    }
+
+    @Override
+    public void setListener(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+    }
+}
+```
+
+#### BaseParentActivity介绍
+```java
+public abstract class BaseParentFragment extends Fragment {
+
+    public Context context;
+    public Activity activity;
+    private Toast toast = null;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        context = getContext();
+        activity = getActivity();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView(view, savedInstanceState);
+        setListener(view, savedInstanceState);
+    }
+
+    public abstract void initView(@NonNull View view, @Nullable Bundle savedInstanceState);
+
+    public abstract void setListener(@NonNull View view, @Nullable Bundle savedInstanceState);
+
+    /**
+     * 获取资源文件中的颜色
+     *
+     * @param id 颜色的资源id
+     * @return 返回颜色的色值
+     */
+    @ColorInt
+    public int getResColor(@ColorRes int id) {
+        try {
+            return getResources().getColor(id);
+        } catch (Exception e) {
+            return Color.TRANSPARENT;
+        }
+    }
+
+    /**
+     * 获取资源文件图片或者drawable
+     *
+     * @param id 资源文件的id
+     * @return 返回的资源文件
+     */
+    public Drawable getResDrawable(@DrawableRes int id) {
+        try {
+            return getResources().getDrawable(id);
+        } catch (Exception e) {
+            return new ColorDrawable(Color.TRANSPARENT);
+        }
+    }
+
+    /**
+     * 获取布局文件
+     *
+     * @param resource 布局id
+     * @return 返回的布局view
+     */
+    public View getLayout(@LayoutRes int resource) {
+        return LayoutInflater.from(activity).inflate(resource, null);
+    }
+
+    /**
+     * 获取布局文件
+     *
+     * @param resource 布局id
+     * @param root     布局要加入的父布局ViewGroup
+     * @return 返回的布局view
+     */
+    public View getLayout(@LayoutRes int resource, @Nullable ViewGroup root) {
+        return LayoutInflater.from(activity).inflate(resource, root);
+    }
+
+    /**
+     * 获取布局文件
+     *
+     * @param resource     布局id
+     * @param root         布局要加入的父布局ViewGroup
+     * @param attachToRoot
+     * @return 返回的布局view
+     */
+    public View getLayout(@LayoutRes int resource, @Nullable ViewGroup root, boolean attachToRoot) {
+        return LayoutInflater.from(activity).inflate(resource, root, attachToRoot);
+    }
+
+    /**
+     * 弹出提示
+     *
+     * @param message 提示的信息
+     */
+    public void showToast(CharSequence message) {
+        if (message != null) {
+            if (toast == null) {
+                toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.BOTTOM, 0, dp2px(context, 100));
+            }
+            toast.setText(message);
+            toast.show();
+        }
+    }
+
+    /**
+     * 弹出提示
+     *
+     * @param message 提示的信息
+     * @param gravity 位于屏幕中的位置。例: Gravity.BOTTOM
+     */
+    public void showToast(CharSequence message, int gravity) {
+        if (message != null) {
+            if (toast == null) {
+                toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
+                toast.setGravity(gravity, 0, 0);
+            }
+            toast.setText(message);
+            toast.show();
+        }
+    }
+
+    /**
+     * 弹出提示
+     *
+     * @param message 提示的信息
+     * @param gravity 位于屏幕中的位置。例: Gravity.BOTTOM
+     * @param xOffset x轴上的偏移量
+     * @param yOffset y轴上的偏移量
+     */
+    public void showToast(CharSequence message, int gravity, int xOffset, int yOffset) {
+        if (message != null) {
+            if (toast == null) {
+                toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
+                toast.setGravity(gravity, xOffset, yOffset);
+            }
+            toast.setText(message);
+            toast.show();
+        }
+    }
+
+    /**
+     * 弹出提示
+     *
+     * @param text 提示的文字
+     */
+    public void showSnackbar(CharSequence text) {
+        View view = getView();
+        if (view == null && activity != null) {
+            view = activity.findViewById(android.R.id.content);
+        }
+        if (view != null) {
+            Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     *
+     * @param context
+     * @param dpValue
+     * @return
+     */
+    public int dp2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
+
+    /**
+     * 将sp值转换为px值，保证文字大小不变
+     *
+     * @param context
+     * @param spValue
+     * @return
+     */
+    public int sp2px(Context context, float spValue) {
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
+    }
+
+    /**
+     * 打开指定Activity
+     *
+     * @param clazz 指定Activity
+     */
+    public void toActivity(Class<?> clazz) {
+        if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
+            activity.startActivity(new Intent(activity, clazz));
+        }
+    }
+
+    /**
+     * 打开指定Activity
+     *
+     * @param clazz  指定Activity
+     * @param bundle 携带的数据源
+     */
+    public void toActivity(Class<?> clazz, Bundle bundle) {
+        if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
+            Intent intent = new Intent(activity, clazz);
+            intent.putExtras(bundle);
+            activity.startActivity(intent);
+        }
+    }
+
+    /**
+     * 打开指定Activity
+     *
+     * @param clazz       指定Activity
+     * @param requestCode 请求码
+     */
+    public void toActivity(Class<?> clazz, int requestCode) {
+        if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
+            activity.startActivityForResult(new Intent(activity, clazz), requestCode);
+        }
+    }
+
+    /**
+     * 打开指定Activity
+     *
+     * @param clazz       指定Activity
+     * @param requestCode 请求码
+     */
+    public void toActivity(Class<?> clazz, long requestCode) {
+        if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
+            Intent intent = new Intent();
+            intent.setClass(activity, clazz);
+            intent.putExtra("requestCode", requestCode);
+            activity.startActivity(intent);
+        }
+    }
+
+    /**
+     * 打开指定Activity
+     *
+     * @param clazz       指定Activity
+     * @param bundle      数据bundle
+     * @param requestCode 请求码
+     */
+    public void toActivity(Class<?> clazz, Bundle bundle, long requestCode) {
+        if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
+            Intent intent = new Intent();
+            intent.setClass(activity, clazz);
+            intent.putExtra("requestCode", requestCode);
+            intent.putExtras(bundle);
+            activity.startActivity(intent);
+        }
+    }
+
+    /**
+     * 打开指定Activity
+     *
+     * @param clazz       指定Activity
+     * @param bundle      携带的数据源
+     * @param requestCode 请求码
+     */
+    public void toActivity(Class<?> clazz, Bundle bundle, int requestCode) {
+        if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
+            Intent intent = new Intent(activity, clazz);
+            intent.putExtras(bundle);
+            activity.startActivityForResult(intent, requestCode);
+        }
+    }
+
 }
 ```
 
