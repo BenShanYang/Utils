@@ -6,14 +6,16 @@
 Gradle 
 ```groovy
 allprojects {
-	repositories {
-		...
-		maven { url 'https://jitpack.io' }
-	}
+    repositories {
+	...
+	maven { url 'https://jitpack.io' }
+    }
 }
-  
+```
+
+```groovy
 dependencies {
-	implementation 'com.github.BenShanYang:Utils:1.0.6'
+    implementation 'com.github.BenShanYang:Utils:1.0.6'
 }
 ```
 
