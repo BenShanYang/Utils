@@ -1,6 +1,5 @@
 # Android开发工具类-Utils
 最新版本1.0.6  
-[Utils Api文档](https://github.com/BenShanYang/JavaDoc)
 
 ## 依赖Utils
 
