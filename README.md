@@ -23,6 +23,27 @@ dependencies {
 
 ## 帮助类方法解释
 
+#### TextUtils - 字符串处理工具类
+|方法名|描述|参数描述|
+|---|---|---|
+|isEmpty(CharSequence str)|判断字符串是否为空|str-输入的内容|
+|isEmpty(CharSequence str, boolean isTrim)|判断字符串是否为空|str-字符串<br>isTrim-是否将前后空格也算做内容|
+|getText(TextView textView)|获取TextView或EditText的控件内容|textView-传入TextView或EditText控件|
+|setText(@NonNull TextView textView, CharSequence text, float thickness)|设置字体粗细|textView-显示文字的控件<br>text-要显示的文字<br>thickness-文字的粗细程度,建议0.8f|
+|setText(@NonNull TextView textView, CharSequence text, final float thickness, @ColorInt final int color)|设置字体粗细|textView-显示文字的控件<br>text-要显示的文字<br>thickness-文字的粗细程度<br>color-文字的颜色|
+|equals(CharSequence a, CharSequence b)|判断两个字符串是否相等|a-字符串a<br>b-字符串b|
+|length(CharSequence str)|获取字符串的长度|str-输入的字符串|
+|setDrawable(TextView textView, CharSequence charSequence, int resId, @Gravity int gravity)|为TextView设置Drawable图片|textView-文字控件TextView<br>charSequence-设置的文字<br>resId-图片的资源id<br>gravity-位置|
+|setDrawable(TextView textView, CharSequence charSequence, int resId, int drawablePadding, @Gravity int gravity)|为TextView设置Drawable图片|textView-文字控件TextView<br>charSequence-设置的文字<br>resId-图片的资源id<br>drawablePadding-文字和Icon的距离<br>gravity-位置|
+|setDrawable(TextView textView, CharSequence charSequence, Drawable imgDrawable, @Gravity int gravity)|为TextView设置Drawable图片|textView-文字控件TextView<br>charSequence-设置的文字<br>imgDrawable-图片<br>gravity-位置|
+|setDrawable(TextView textView, CharSequence charSequence, Drawable imgDrawable, int drawablePadding, @Gravity int gravity)|为TextView设置Drawable图片|textView-文字控件TextView<br>charSequence-设置的文字<br>imgDrawable-图片<br>drawablePadding-文字和Icon的距离<br>gravity-位置|
+|setDrawable(TextView textView, int resId, @Gravity int gravity)|为TextView设置Drawable图片|textView-文字控件TextView<br>resId-图片的资源id<br>gravity-位置|
+|setDrawable(TextView textView, int resId, int drawablePadding, @Gravity int gravity)|为TextView设置Drawable图片|textView-文字控件TextView<br>resId-图片的资源id<br>drawablePadding-图片和文字的间距<br>gravity-位置|
+|setDrawable(TextView textView, Drawable imgDrawable, @Gravity int gravity)|为TextView设置Drawable图片|textView-文字控件TextView<br>imgDrawable-图片<br>gravity-位置|
+|setDrawable(TextView textView, Drawable imgDrawable, int drawablePadding, @Gravity int gravity)|为TextView设置Drawable图片|textView-文字控件TextView<br>imgDrawable-图片<br>drawablePadding-图片和文字的间距<br>gravity-位置|
+|setDrawable(TextView textView, int drawablePadding, Drawable leftDrawable, Drawable topDrawable, Drawable rightDrawable, Drawable bottomDrawable)|为TextView设置Drawable图片|textView-文字控件TextView<br>drawablePadding-图片和文字的间距<br>leftDrawable-左图片<br>topDrawable-上图片<br>rightDrawable-右图片<br>bottomDrawable-下图片|
+|setDrawable(TextView textView, CharSequence charSequence, int drawablePadding, Drawable leftDrawable, Drawable topDrawable, Drawable rightDrawable, Drawable bottomDrawable)|为TextView设置Drawable图片|textView-文字控件TextView<br>charSequence-文字内容<br>drawablePadding-图片和文字的间距<br>leftDrawable-左图片<br>topDrawable-上图片<br>rightDrawable-右图片<br>bottomDrawable-下图片|
+
 #### AppUtils - 获取App基本信息的工具类
 |方法名|描述|参数描述|
 |---|---|---|
@@ -137,83 +158,87 @@ dependencies {
 |round(double v, int scale, int round)|提供精确的小数位获取|v-需要处理的数字<br>scale-小数点后保留几位<br>round:BigDecimal.ROUND_DOWN - 直接删除多余的小数位,如2.35变成2.3<br>BigDecimal.ROUND_UP - 进位处理,如2.35变成2.4<br>BigDecimal.ROUND_HALF_UP - 四舍五入,如2.35变成2.4<br>BigDecimal.ROUND_HALF_DOWN - 四舍五入,如2.35变成2.3|
 |compareBigDecimal(String amount, double compare)|比较大小|amount-输入的数值<br>compare-被比较的数字|
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### NetUtils - 网络工具类
+|方法名|描述|参数描述|
+|---|---|---|
+|getNetworkType(Context context)|获取网络类型|context-上下文|
+|getNetworkTypeName(Context context)|获取网络名称|context-上下文|
+|isConnected(Context context)|网路是否连接|context-上下文|
+|isNetworkAvailable(Context context)|网络可用性|context-上下文|
+|isWiFi(Context context)|是否是wifi|context-上下文|
+|openNetSetting(Activity activity)|打开网络设置界面|activity-上下文|
+|setWifiEnabled(Context context, boolean enabled)|设置wifi状态|context-上下文<br>enabled-设置wifi状态|
+|getWifiScanResults(Context context)|获取wifi列表|context-上下文|
+|getScanResultsByBSSID(Context context, String bssid)|过滤扫描结果|context-上下文<br>bssid-访问点的地址|
+|getWifiConnectionInfo(Context context)|获取wifi连接信息|context-上下文|
+
+#### PhoneUtils - 手机号操作工具类
+|方法名|描述|参数描述|
+|---|---|---|
+|isMobileNO(String mobileNums)|判断字符串是否符合手机号码格式|mobileNums-待检测的手机号字符串|
+|callPhone(Context context, String phoneNum, boolean isCall)|拨打电话|phoneNum-手机号<br>isCall-true:直接拨打电话, false:跳转到拨号界面，用户手动点击拨打|
+|hiddenPhone(String phoneNO)|隐藏手机号码中间四位|phoneNO-手机号码|
+
+#### ResUtils - 通过资源id获取相关内容
+|方法名|描述|参数描述|
+|---|---|---|
+|getDrawable(@NonNull Context context, @DrawableRes int resId)|获取资源文件中的Drawable|context-上下文<br>resId-drawable的资源id|
+|getString(Context context, @StringRes int resId)|获取资源文件中的字符串|context-上下文<br>resId-字符串的资源id|
+|getStrings(Context context, @ArrayRes int resId)|获取资源文件中的字符串数组|context-上下文<br>resId-字符串数组的资源id|
+|getColor(@NonNull Context context, @ColorRes int color)|获取资源文件中的颜色|context-上下文<br>color-颜色的资源id|
+|getColorStateList(Context context, @ColorRes int resId)|获取资源文件中的颜色样式文件|context-上下文<br>resId-颜色样式文件的资源id|
+
+#### SaveImageUtils - 保存图片工具类
+|方法名|描述|参数描述|
+|---|---|---|
+|savePicture(Context context, Bitmap bitmap)|保存图片|context-上下文<br>bitmap-图片Bitmap|
+|savePicture(Context context, Drawable drawable)|保存图片|context-上下文<br>drawable-图片Drawable|
+|savePicture(Context context, Drawable drawable, CharSequence name)|保存图片|context-上下文<br>drawable-图片Drawable<br>name-图片名称|
+|savePicture(Context context, Bitmap bitmap, CharSequence name)|将图片Bitmap保存到本地|context-上下文<br>bitmap-图片Bitmap<br>name-图片名称|
+|drawable2Bitmap(Drawable drawable)|Drawable转换成Bitmap|drawable-源图片的Drawable|
+
+#### ScreenshotUtils - 截图截屏工具
+|方法名|描述|参数描述|
+|---|---|---|
+|getBitmapByView(ViewGroup viewGroup)|将ViewGroup保存成图片|viewGroup-所要截图的父布局|
+|saveBitmap(Context context, Bitmap bmp, String imageName)|将Bitmap保存到本地|context-上下文<br>bmp-图片Bitmap<br>imageName-图片名称|
+
+#### SMSUtils - 短信工具类
+|方法名|描述|参数描述|
+|---|---|---|
+|sendSMS(Context context, String phoneNumber, String message)|调起系统发短信功能|context-上下文<br>phoneNumber-手机号码<br>message-发送的信息|
+
+#### SPUtils - SharedPreferences工具类
+|方法名|描述|参数描述|
+|---|---|---|
+|init(Context context, String spName)|初始化SharedPreferences|context-上下文<br>spName-SharedPreferences名称|
+|putInt(String key, int value)|保存int类型的数据|key-SP的键名<br>value-值|
+|getInt(String key, int defaultvalue)|获取int类型的数据|key-SP的键名<br>defaultvalue-默认值|
+|getInt(String key)|获取int类型的数据|key-SP的键名|
+|putString(String key, String value)|保存String类型的数据|key-SP的键名<br>value-值|
+|getString(String key, String defaultvalue)|获取String类型的数据|key-SP的键名<br>defaultvalue-默认值|
+|getString(String key)|获取String类型的数据|key-SP的键名|
+|putBoolean(String key, boolean value)|保存boolean类型的值|key-SP的键名<br>value-值|
+|getBoolean(String key, boolean defValue)|获取boolean类型的数据|key-SP的键名<br>defValue-默认值|
+|getBoolean(String key)|获取boolean类型的数据|key-SP的键名|
+|putFloat(String key, float value)|保存float类型的数据|key-SP的键名<br>value-值|
+|getFloat(String key, float defValue)|获取float类型的数据|key-SP的键名<br>defValue-默认值|
+|getFloat(String key)|获取float类型的数据|key-SP的键名|
+|putLong(String key, long value)|保存long类型的数据|key-SP的键名<br>value-值|
+|getLong(String key, long defValue)|获取long类型的数据|key-SP的键名<br>defValue-默认值|
+|getLong(String key)|获取long类型的数据|key-SP的键名|
+|clear()|清空SP里所有数据||
+|remove(String key)|删除SP里指定key对应的数据项|key SP的键名|
+|contains(String key)|查看sp文件里面是否存在此 key|key-SP的键名|
+
+#### SystemRecordUtils - 调用系统的视频录制
+|方法名|描述|参数描述|
+|---|---|---|
+|recordVideo(Activity activity)|调用系统相机录视视频|activity<br>上下文|
+|recordVideo(Activity activity, String fileName)|调用系统相机录视视频|activity-上下文<br>fileName-视频名称|
+|recordVideo(Activity activity, String filePath, String fileName)|调用系统相机录视视频|activity-上下文<br>filePath-视频所在文件夹路径<br>fileName-视频名称|
+|recordVideo(Activity activity, String filePath, String fileName, int requestCode)|调用系统相机录视视频|activity-上下文<br>filePath-视频所在文件夹路径<br>fileName-视频名称<br>requestCode-请求码|
+|recordVideo(Activity activity, String filePath, String fileName, int quality, int duration, int requestCode)|调用系统相机录视视频|activity-上下文<br>filePath-视频所在文件夹路径<br>fileName-视频名称<br>quality-录制视频的质量，从 0-1，越大表示质量越好，同时视频也越大<br>duration-设置视频录制的最长时间,单位秒<br>requestCode-请求码|
+|getVideoInformation(Context context, Uri videoUri)|获取视频信息|context-上下文<br>videoUri-视频的Uri|
 
 
