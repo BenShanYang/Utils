@@ -63,7 +63,7 @@ public class AppUtils {
      * @param context 上下文
      * @return 安装了true, 未安装false
      */
-    public static boolean isInstalledWeiChat(Context context) {
+    public static boolean isInstalledWeChat(Context context) {
         return isInstalled(context, "com.tencent.mm");
     }
 
@@ -72,7 +72,7 @@ public class AppUtils {
      * @param context 上下文
      * @return 安装了true, 未安装false
      */
-    public static boolean isInstalledWeiBo(Context context) {
+    public static boolean isInstalledBlog(Context context) {
         return isInstalled(context, "com.sina.weibo");
     }
 
