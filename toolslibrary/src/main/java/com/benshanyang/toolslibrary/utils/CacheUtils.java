@@ -18,7 +18,6 @@ public class CacheUtils {
      *
      * @param context 上下文
      * @return 获取的缓存大小, String类型
-     * @throws Exception
      */
     public static String getTotalCacheSize(Context context) {
         long cacheSize = getFolderSize(context.getCacheDir());
