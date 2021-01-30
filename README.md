@@ -30,5 +30,12 @@ dependencies {
 |isInstalledQQ(Context context)|是否安装了QQ|context-上下文|
 |isInstalledWeiChat(Context context)|是否安装了微信|context-上下文|
 |isInstalledWeiBo(Context context)|是否安装了新浪微博|context-上下文|
+|getAppName(Context context)|获取应用程序名称|context-上下文|
+|getVersionName(Context context)|获取应用程序版本名称信息|context-上下文|
+|getVersionCode(Context context)|获取应用程序版本名称信息|context-上下文|
+|getPackageName(Context context)|获取应用程序版本名称信息|context-上下文|
+|getBitmap(Context context)|获取图标 bitmap|context-上下文|
+|getDrawable(Context context)|获取图标 drawable|context-上下文|
+
 
 [Utils Api文档](https://github.com/BenShanYang/JavaDoc)
