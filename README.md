@@ -23,7 +23,7 @@ dependencies {
 
 
 ## 基础类
-####BaseDialog
+### BaseDialog使用
 ```java
 public class CustomDialog extends BaseDialog {
 
@@ -38,6 +38,226 @@ public class CustomDialog extends BaseDialog {
     public int getGravity() {
     	//设置显示内容的居中方式。例：Gravity.CENTER、Gravity.BOTTOM 、Gravity.CENTER_HORIZONTAL
         return Gravity.CENTER;
+    }
+}
+```
+### BaseParentActivity
+#### 使用
+```java
+public class MainActivity extends BaseParentActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
+```
+#### BaseParentActivity介绍
+```java
+public abstract class BaseParentActivity extends FragmentActivity {
+
+    /**
+     * 设置 app 不随着系统字体的调整而变化
+     */
+    @Override
+    public Resources getResources() {
+        ......
+    }
+
+    /**
+     * 获取资源文件中的颜色
+     *
+     * @param id 颜色的资源id
+     * @return 返回颜色的色值
+     */
+    @ColorInt
+    public int getResColor(@ColorRes int id) {
+        ......
+    }
+
+    /**
+     * 获取资源文件图片或者drawable
+     *
+     * @param id 资源文件的id
+     * @return 返回的资源文件
+     */
+    public Drawable getResDrawable(@DrawableRes int id) {
+        ......
+    }
+
+    /**
+     * 获取布局文件
+     *
+     * @param resource 布局id
+     * @return 返回的布局view
+     */
+    public View getLayout(@LayoutRes int resource) {
+        ......
+    }
+
+    /**
+     * 获取布局文件
+     *
+     * @param resource 布局id
+     * @param root     布局要加入的父布局ViewGroup
+     * @return 返回的布局view
+     */
+    public View getLayout(@LayoutRes int resource, @Nullable ViewGroup root) {
+        ......
+    }
+
+    /**
+     * 获取布局文件
+     *
+     * @param resource     布局id
+     * @param root         布局要加入的父布局ViewGroup
+     * @param attachToRoot
+     * @return 返回的布局view
+     */
+    public View getLayout(@LayoutRes int resource, @Nullable ViewGroup root, boolean attachToRoot) {
+        ......
+    }
+
+    /**
+     * 弹出提示
+     *
+     * @param message 提示的信息
+     */
+    public void showToast(CharSequence message) {
+        ......
+    }
+
+    /**
+     * 弹出提示
+     *
+     * @param message 提示的信息
+     * @param gravity 位于屏幕中的位置。例: Gravity.BOTTOM
+     */
+    public void showToast(CharSequence message, int gravity) {
+        ......
+    }
+
+    /**
+     * 弹出提示
+     *
+     * @param message 提示的信息
+     * @param gravity 位于屏幕中的位置。例: Gravity.BOTTOM
+     * @param xOffset x轴上的偏移量
+     * @param yOffset y轴上的偏移量
+     */
+    public void showToast(CharSequence message, int gravity, int xOffset, int yOffset) {
+        ......
+    }
+
+    /**
+     * 弹出提示
+     *
+     * @param text 提示的文字
+     */
+    public void showSnackbar(CharSequence text) {
+        ......
+    }
+
+    /**
+     * 打开指定Activity
+     *
+     * @param clazz 指定Activity
+     */
+    public void toActivity(Class<?> clazz) {
+        ......
+    }
+
+    /**
+     * 打开指定Activity
+     *
+     * @param clazz       指定Activity
+     * @param requestCode 请求码
+     */
+    public void toActivity(Class<?> clazz, int requestCode) {
+        ......
+    }
+
+    /**
+     * 打开指定Activity
+     *
+     * @param clazz       指定Activity
+     * @param requestCode 请求码
+     */
+    public void toActivity(Class<?> clazz, long requestCode) {
+        ......
+    }
+
+    /**
+     * 打开指定Activity
+     *
+     * @param clazz       指定Activity
+     * @param bundle      数据bundle
+     * @param requestCode 请求码
+     */
+    public void toActivity(Class<?> clazz, Bundle bundle, long requestCode) {
+        ......
+    }
+
+    /**
+     * 打开指定Activity
+     *
+     * @param clazz  指定Activity
+     * @param bundle 携带的数据源
+     */
+    public void toActivity(Class<?> clazz, Bundle bundle) {
+        ......
+    }
+
+    /**
+     * 打开指定Activity
+     *
+     * @param clazz       指定Activity
+     * @param bundle      携带的数据源
+     * @param requestCode 请求码
+     */
+    public void toActivity(Class<?> clazz, Bundle bundle, int requestCode) {
+        ......
+    }
+
+    /**
+     * 获取携带的数据
+     *
+     * @return
+     */
+    public Bundle getBundle() {
+        ......
+    }
+
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     *
+     * @param context
+     * @param dpValue
+     * @return
+     */
+    public int dp2px(Context context, float dpValue) {
+        ......
+    }
+
+    /**
+     * 将sp值转换为px值，保证文字大小不变
+     *
+     * @param context
+     * @param spValue
+     * @return
+     */
+    public int sp2px(Context context, float spValue) {
+        ......
+    }
+
+    /**
+     * 获取请求码
+     *
+     * @return
+     */
+    public long getRequestCode() {
+        ......
     }
 }
 ```
