@@ -1,8 +1,10 @@
-# Utils
+## Utils
 [![](https://www.jitpack.io/v/BenShanYang/Utils.svg)](https://www.jitpack.io/#BenShanYang/Utils)
 
 
-### 依赖Utils
+## 依赖Utils
+
+#### Step 1.添加依赖
 Gradle 
 ```groovy
 allprojects {
