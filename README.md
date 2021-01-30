@@ -24,7 +24,7 @@ dependencies {
 ## 帮助类方法解释
 
 #### AppUtils - 获取App基本信息的工具类
-|方法名|描述|参数描述
+|方法名|描述|参数描述|
 |---|---|---|
 |isInstalled(Context context, String packageName)|判断是否安装某个App|context-上下文<br>packageName-包名|
 |isInstalledQQ(Context context)|是否安装了QQ|context-上下文|
@@ -38,26 +38,26 @@ dependencies {
 |getDrawable(Context context)|获取图标 drawable|context-上下文|
 
 #### CacheUtils - 清除缓存的工具类
-|方法名|描述|参数描述
+|方法名|描述|参数描述|
 |---|---|---|
 |getTotalCacheSize(Context context)|获取缓存大小|context-上下文|
 |clearAllCache(Context context)|清除缓存|context-上下文|
 
 #### ClipboardUtils - 剪切板工具类
-|方法名|描述|参数描述
+|方法名|描述|参数描述|
 |---|---|---|
 |getClipboardContent(Context context)|获取剪切板的内容|context-上下文|
 |copy(Context context, CharSequence str)|复制文字|context-上下文<br>text-要复制的内容|
 |copy(Context context, CharSequence label, CharSequence str)|复制文字|context-上下文<br>label-剪切板数据的用户可见标签<br>text-要复制的内容|
 
 #### DateUtils - 日期格式化工具类
-|方法名|描述|参数描述
+|方法名|描述|参数描述|
 |---|---|---|
 |formatTimeStamp(Long timeStamp, String template)|通过时间戳获取格式化后的时间串|timeStamp-时间戳(毫秒)<br>template-格式化模板。例如: yyyy-MM-dd HH:mm:ss|
 |stringDateToTimeStamp(String strDate, String template)|将时间的字符串转换成时毫秒时间戳|strDate-时间的字符串<br>template-格式化模板,需要和时间字符串的格式匹配。例如: yyyy-MM-dd HH:mm:ss|
 
 #### DensityUtils - dp、px、sp相互转换工具类
-|方法名|描述|参数描述
+|方法名|描述|参数描述|
 |---|---|---|
 |dp2px(Context context, float dpValue)|根据手机的分辨率从 dp 的单位 转成为 px(像素)|context-上下文<br>dpValue-要转换的dp值|
 |px2dp(Context context, float pxValue)|将px转换为与之相等的dp|context-上下文<br>pxValue-要转换的px值|
@@ -65,7 +65,7 @@ dependencies {
 |sp2px(Context context, float spValue)|将sp值转换为px值|context-上下文<br>spValue-要转换的sp值|
 
 #### DensityUtils - 设备管理工具
-|方法名|描述|参数描述
+|方法名|描述|参数描述|
 |---|---|---|
 |getStatusBarHeight(Context context)|获取状态栏高度|context-上下文|
 |setFullScreen(Activity activity)|设置全屏|activity|
@@ -76,18 +76,18 @@ dependencies {
 |getScreenHeight(Context context)|获得屏幕高度|context-上下文|
 
 #### EmailUtils - Email工具类
-|方法名|描述|参数描述
+|方法名|描述|参数描述|
 |---|---|---|
 |checkEmail(CharSequence email)|验证Email|email-email地址|
 
 #### IDCardUtils - 身份证号码验证工具类
-|方法名|描述|参数描述
+|方法名|描述|参数描述|
 |---|---|---|
 |validate(String idCardNumber)|身份证号码校验|idCardNumber-需要验证的身份证号码|
 |getErrorInfo()|获取错误信息||
 
 #### KeyBoardUtils - 软键盘操作类
-|方法名|描述|参数描述
+|方法名|描述|参数描述|
 |---|---|---|
 |showKeyboard(EditText editText)|显示软键盘|editText-需要显示软键盘的输入框|
 |showKeyboard(EditText editText, boolean isDelay)|延时显示软键盘|editText-需要显示软键盘的输入框<br>isDelay-是否需要延时时间|
@@ -96,7 +96,7 @@ dependencies {
 |isKeyboardVisible(Activity activity)|软键盘是否显示|activity|
 
 #### Logger - 日志帮助类
-|方法名|描述|参数描述
+|方法名|描述|参数描述|
 |---|---|---|
 |v(String msg)|设置Verbose日志|msg-日志信息|
 |v(String tag, String msg)|设置Verbose日志|tag-日志标签<br>msg-日志信息|
@@ -109,8 +109,8 @@ dependencies {
 |e(String msg)|设置Error日志|msg-日志信息|
 |e(String tag, String msg)|设置Error日志|tag-日志标签<br>msg-日志信息|
 
-#### MetaDataUtils - 获取Manifest中<meta-data>元素的值
-|方法名|描述|参数描述
+#### MetaDataUtils - 获取Manifest中<meta-data>元素的值的工具类
+|方法名|描述|参数描述|
 |---|---|---|
 |getActivityMetaData(Activity activity, String name)|获取Manifest中Activity标签下的<meta-data>元素的值|activity-Activity的上下文<br>name-meta-data的name|
 |getApplicationMetaData(Context context, String name)|获取Manifest中Application标签下的<meta-data>元素的值|context-Application的上下文<br>name-<meta-data>的name|
