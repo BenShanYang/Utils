@@ -67,17 +67,55 @@ dependencies {
 #### DensityUtils - 设备管理工具
 |方法名|描述|参数描述
 |---|---|---|
-|getStatusBarHeight(Context context)|获取状态栏高度|context 上下文|
+|getStatusBarHeight(Context context)|获取状态栏高度|context-上下文|
 |setFullScreen(Activity activity)|设置全屏|activity|
+|cancelFullScreen(Activity activity)|取消全屏|activity|
+|isFullScreen(Activity activity)|判断是否全屏|activity|
+|getDisplayMetrics(Activity activity)|获得设备屏幕密度|activity|
+|getScreenWidth(Context context)|获得屏幕宽度|context-上下文|
+|getScreenHeight(Context context)|获得屏幕高度|context-上下文|
 
+#### EmailUtils - Email工具类
+|方法名|描述|参数描述
+|---|---|---|
+|checkEmail(CharSequence email)|验证Email|email-email地址|
 
+#### IDCardUtils - 身份证号码验证工具类
+|方法名|描述|参数描述
+|---|---|---|
+|validate(String idCardNumber)|身份证号码校验|idCardNumber-需要验证的身份证号码|
+|getErrorInfo()|获取错误信息||
 
+#### KeyBoardUtils - 软键盘操作类
+|方法名|描述|参数描述
+|---|---|---|
+|showKeyboard(EditText editText)|显示软键盘|editText-需要显示软键盘的输入框|
+|showKeyboard(EditText editText, boolean isDelay)|延时显示软键盘|editText-需要显示软键盘的输入框<br>isDelay-是否需要延时时间|
+|showKeyboard(final EditText editText, int delay)|延时显示软键盘|editText-需要显示软键盘的输入框<br>delay-延时时间，毫秒|
+|hideKeyboard(final View view)|隐藏软键盘|view-当前页面上任意一个可用的view|
+|isKeyboardVisible(Activity activity)|软键盘是否显示|activity|
 
+#### Logger - 日志帮助类
+|方法名|描述|参数描述
+|---|---|---|
+|v(String msg)|设置Verbose日志|msg-日志信息|
+|v(String tag, String msg)|设置Verbose日志|tag-日志标签<br>msg-日志信息|
+|d(String msg)|设置Debug日志|msg-日志信息|
+|d(String tag, String msg)|设置Debug日志|tag-日志标签<br>msg-日志信息|
+|i(String msg)|设置Info日志|msg-日志信息|
+|i(String tag, String msg)|设置Info日志|tag-日志标签<br>msg-日志信息|
+|w(String msg)|设置Warn日志|msg-日志信息|
+|w(String tag, String msg)|设置Warn日志|tag-日志标签<br>msg-日志信息|
+|e(String msg)|设置Error日志|msg-日志信息|
+|e(String tag, String msg)|设置Error日志|tag-日志标签<br>msg-日志信息|
 
-
-
-
-
+#### MetaDataUtils - 获取Manifest中<meta-data>元素的值
+|方法名|描述|参数描述
+|---|---|---|
+|getActivityMetaData(Activity activity, String name)|获取Manifest中Activity标签下的<meta-data>元素的值|activity-Activity的上下文<br>name-meta-data的name|
+|getApplicationMetaData(Context context, String name)|获取Manifest中Application标签下的<meta-data>元素的值|context-Application的上下文<br>name-<meta-data>的name|
+|getServiceMetaData(Context context, Class<?> clazz, String name)|获取Manifest中Service标签下的<meta-data>元素的值|context-Serviece的上下文<br>clazz-对应的Service类<br>name-<meta-data>的name|
+|getReceiverMetaData(Context context, Class<?> clazz, String name)|获取Manifest中Receiver标签下的<meta-data>元素的值|context-Receiver的上下文<br>clazz-对应的Receiver类<br>name-<meta-data>的name|
 
 
 
