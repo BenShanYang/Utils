@@ -21,6 +21,27 @@ dependencies {
 }
 ```
 
+
+## 基础类
+####BaseDialog
+```java
+public class CustomDialog extends BaseDialog {
+
+    public CustomDialog(@NonNull Context context) {
+        super(context);
+        setContentView(R.layout.dialog_dialog);
+        //点击弹窗区域外弹窗消失
+        setCanceledOnTouchOutside(true);
+    }
+
+    @Override
+    public int getGravity() {
+    	//设置显示内容的居中方式。例：Gravity.CENTER、Gravity.BOTTOM 、Gravity.CENTER_HORIZONTAL
+        return Gravity.CENTER;
+    }
+}
+```
+
 ## 帮助类方法解释
 
 #### TextUtils - 字符串处理工具类
@@ -163,7 +184,7 @@ dependencies {
 |---|---|---|
 |getNetworkType(Context context)|获取网络类型|context-上下文|
 |getNetworkTypeName(Context context)|获取网络名称|context-上下文|
-|isConnected(Context context)|网路是否连接|context-上下文|
+|isConnected(Context context)|网络是否连接|context-上下文|
 |isNetworkAvailable(Context context)|网络可用性|context-上下文|
 |isWiFi(Context context)|是否是wifi|context-上下文|
 |openNetSetting(Activity activity)|打开网络设置界面|activity-上下文|
