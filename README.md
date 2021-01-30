@@ -1,5 +1,5 @@
 # Android开发工具类-Utils
-最新版本1.0.6  [![](https://www.jitpack.io/v/BenShanYang/Utils.svg)](https://www.jitpack.io/#BenShanYang/Utils)
+最新版本1.0.6  
 [Utils Api文档](https://github.com/BenShanYang/JavaDoc)
 
 ## 依赖Utils
@@ -26,10 +26,167 @@ dependencies {
 
 ### 接口类和抽象类
 ```java
-interface OnItemClickListener<T> //自定义RecyclerView的item点击回调事件
-interface OnItemLongClickListener<T> //自定RecyclerView的item长点击回调事件
-abstract class OnPageChangedListener //ViewPager.OnPageChangeListener的实现类，只在代码里实现onPageSelected(int position)方法，避免实现过多方法
-abstract class TextWatchListener //TextWatcher的实现类，再在代码里实现afterTextChanged(Editable s)方法，避免实现过多方法
+OnItemClickListener<T> //自定义RecyclerView的item点击回调事件
+OnItemLongClickListener<T> //自定RecyclerView的item长点击回调事件
+OnPageChangedListener //ViewPager.OnPageChangeListener的实现类，只在代码里实现onPageSelected(int position)方法，避免实现过多方法
+TextWatchListener //TextWatcher的实现类，再在代码里实现afterTextChanged(Editable s)方法，避免实现过多方法
+```
+### Activity栈管理类-ActivityStackManager
+```java
+------------------------Application注册------------------------
+public class UtilsApp extends Application {
+
+    public static ActivityStackManager manager;
+    
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        manager = ActivityStackManager.getInstance();
+        //manager.clearStack();//清空activity栈
+        //manager.topActivity();//获取Activity栈顶activity
+        manager.setActivityLifecycle(new ActivityLifecycle(){
+            @Override
+            public void onActivityCreated(@NonNull Activity activity, Bundle savedInstanceState) {
+
+            }
+
+            @Override
+            public void onActivityStarted(@NonNull Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityResumed(@NonNull Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityPaused(@NonNull Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityStopped(@NonNull Activity activity) {
+
+            }
+
+            @Override
+            public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {
+
+            }
+
+            @Override
+            public void onActivityDestroyed(@NonNull Activity activity) {
+
+            }
+        });
+        registerActivityLifecycleCallbacks(manager);
+    }
+}
+
+------------------------首页按两次返回键推出程序------------------------
+// 退出时间
+private long currentBackPressedTime = 0;
+// 退出间隔
+private static final int BACK_PRESSED_INTERVAL = 2000;
+
+@Override
+public void onBackPressed() {
+    // 判断时间间隔
+    if (System.currentTimeMillis()- currentBackPressedTime > BACK_PRESSED_INTERVAL) {
+        currentBackPressedTime = System.currentTimeMillis();
+        Toast.makeText(this, "再按一次返回键退出程序", Toast.LENGTH_SHORT).show();
+    } else {
+        // 退出
+        UtilsApp.manager.clearStack();//清空activity栈
+    }
+}
+
+------------------------退出登录1------------------------
+Intent intent = new Intent(this,MainActivity.class);
+Bundle bundle = new Bundle();
+bundle.putBoolean("onlyAlive",true);
+intent.putExtras(bundle);
+startActivity(intent);
+
+------------------------退出登录2------------------------
+Intent intent = new Intent(this,MainActivity.class);
+intent.putExtra("onlyAlive",true);
+startActivity(intent);
+```
+
+### 文件下载管理类
+```java
+FileDownloadManager downloadManager = new FileDownloadManager(activity,"url","name"){
+    @Override
+    public void onPrepare() {
+	//下载准备
+    }
+
+    @Override
+    public void onSuccess(String path) {
+	//下载完成
+    }
+
+    @Override
+    public void onFailed(Throwable throwable) {
+	//下载失败
+    }
+};
+downloadManager.download();
+```
+
+### 指纹识别管理类
+```java
+FingerprintHelper.Builder builder = new FingerprintHelper.Builder(activity)
+                .callback(new FingerprintCallback() {
+                    @Override
+                    public void onHmUnavailable() {
+                        //硬件不支持                        
+                    }
+
+                    @Override
+                    public void onNoneEnrolled() {
+                        //未添加指纹                        
+                    }
+
+                    @Override
+                    public void fingerprintOk() {
+                        //设备支持指纹并且已经录入指纹并且设备也打开了指纹识别                        
+                    }
+
+                    @Override
+                    public void onSuccee() {
+                        //指纹识别成功                        
+                    }
+
+                    @Override
+                    public void onFailed(int errorCode, CharSequence errString) {
+                        //指纹识别失败
+                        if (errorCode == FingerprintCallback.DISABLED) {
+                            //处于指纹禁用期
+                            showToast("处于指纹禁用期");
+                        } else if (errorCode == FingerprintCallback.VALIDATION_FAILED) {
+                            //多次验证指纹失败被系统禁用指纹一段时间
+                            showToast("多次验证指纹失败被系统禁用指纹一段时间");
+                        } else if (errorCode == FingerprintCallback.FINGERPRINT_READER_DISABLED) {
+                            //尝试次数过多，指纹传感器已停用
+                            showToast("尝试次数过多，指纹传感器已停用");
+                        } else if (errorCode == FingerprintCallback.FINGERPRINT_CANCEL) {
+                            //指纹操作已取消
+                            showToast("指纹操作已取消");
+                        } else if (errorCode == FingerprintCallback.FINGERPRINT_FAILED) {
+                            //没有调用系统的回调函数
+                            showToast("没有调用系统的回调函数");
+                        }
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        //取消指纹识别                        
+                    }
+                });
+        builder.build();
 ```
 
 ### BaseDialog使用
