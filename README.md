@@ -117,8 +117,25 @@ dependencies {
 |getServiceMetaData(Context context, Class<?> clazz, String name)|获取Manifest中Service标签下的<meta-data>元素的值|context-Serviece的上下文<br>clazz-对应的Service类<br>name-<meta-data>的name|
 |getReceiverMetaData(Context context, Class<?> clazz, String name)|获取Manifest中Receiver标签下的<meta-data>元素的值|context-Receiver的上下文<br>clazz-对应的Receiver类<br>name-<meta-data>的name|
 
-
-
+#### MoneyUtils - 金钱计算工具类
+|方法名|描述|参数描述|
+|---|---|---|
+|add(double v1, double v2)|提供精确的加法运算|v1-被加数<br>v2-加数|
+|add(String v1, String v2)|提供精确的加法运算|v1-被加数<br>v2-加数|
+|add(String v1, String v2, int scale)|提供精确的加法运算|v1-被加数<br>v2-加数<br>scale-保留scale位小数|
+|substract(double v1, double v2)|提供精确的减法运算|v1-被减数<br>v2-减数|
+|substract(String v1, String v2)|提供精确的减法运算|v1-被减数<br>v2-减数|
+|substract(String v1, String v2, int scale)|提供精确的减法运算|v1-被减数<br>v2-减数<br>scale-保留scale位小数|
+|multiply(double v1, double v2)|提供精确的乘法运算|v1-被乘数<br>v2-乘数|
+|multiply(double v1, double v2, int scale)|提供精确的乘法运算|v1-被乘数<br>v2-乘数<br>scale-保留scale位小数|
+|multiply(String v1, String v2, int scale)|提供精确的乘法运算|v1-被乘数<br>v2-乘数<br>scale-保留scale位小数|
+|divide(double v1, double v2)|提供(相对)精确的除法运算,当发生除不尽的情况时,精确到小数点以后10位,以后的数字四舍五入。|v1-被除数<br>v2-除数|
+|divide(double v1, double v2, int scale)|提供(相对)精确的除法运算。当发生除不尽的情况时,由scale参数指 定精度,以后的数字四舍五入。|v1-被除数<br>v2-除数<br>scale-表示需要精确到小数点以后几位|
+|divide(String v1, String v2, int scale)|提供(相对)精确的除法运算。当发生除不尽的情况时，由scale参数指定精度，以后的数字四舍五入|v1-被除数<br>v2-除数<br>scale-表示需要精确到小数点以后几位|
+|round(double v, int scale)|提供精确的小数位四舍五入处理|v-需要四舍五入的数字<br>scale-小数点后保留几位|
+|round(String v, int scale)|提供精确的小数位四舍五入处理|v-需要四舍五入的数字<br>scale-小数点后保留几位|
+|round(double v, int scale, int round)|提供精确的小数位获取|v-需要处理的数字<br>scale-小数点后保留几位<br>round:BigDecimal.ROUND_DOWN - 直接删除多余的小数位,如2.35变成2.3<br>BigDecimal.ROUND_UP - 进位处理,如2.35变成2.4<br>BigDecimal.ROUND_HALF_UP - 四舍五入,如2.35变成2.4<br>BigDecimal.ROUND_HALF_DOWN - 四舍五入,如2.35变成2.3|
+|compareBigDecimal(String amount, double compare)|比较大小|amount-输入的数值<br>compare-被比较的数字|
 
 
 
