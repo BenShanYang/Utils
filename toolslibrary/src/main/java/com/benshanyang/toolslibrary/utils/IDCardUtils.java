@@ -28,6 +28,11 @@ public class IDCardUtils {
 
     private static String errorInfo = "";
 
+    /**
+     * 获取错误信息
+     *
+     * @return 返回错误信息
+     */
     public static String getErrorInfo() {
         return errorInfo;
     }
