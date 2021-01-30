@@ -23,6 +23,15 @@ dependencies {
 
 
 ## 基础类
+
+### 接口类和抽象类
+```java
+interface OnItemClickListener<T> //自定义RecyclerView的item点击回调事件
+interface OnItemLongClickListener<T> //自定RecyclerView的item长点击回调事件
+abstract class OnPageChangedListener //ViewPager.OnPageChangeListener的实现类，只在代码里实现onPageSelected(int position)方法，避免实现过多方法
+abstract class TextWatchListener //TextWatcher的实现类，再在代码里实现afterTextChanged(Editable s)方法，避免实现过多方法
+```
+
 ### BaseDialog使用
 ```java
 public class CustomDialog extends BaseDialog {
