@@ -81,7 +81,7 @@ public class NetUtils {
     }
 
     /**
-     * 网路是否连接
+     * 网络是否连接
      *
      * @param context 上下文
      * @return

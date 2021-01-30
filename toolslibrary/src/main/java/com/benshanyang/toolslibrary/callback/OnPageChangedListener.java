@@ -4,7 +4,7 @@ import androidx.viewpager.widget.ViewPager;
 
 /**
  * @ClassName: OnPageChangedListener
- * @Description: java类作用描述
+ * @Description: ViewPager.OnPageChangeListener的实现类
  * @Author: YangKuan
  * @Date: 2020/11/13 14:33
  */

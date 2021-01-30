@@ -55,10 +55,11 @@ public class DeviceUtils {
      * @param activity
      */
     public static void setFullScreen(Activity activity) {
-        Window window = activity.getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        if (activity != null) {
+            Window window = activity.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
     }
 
     /**
@@ -67,9 +68,11 @@ public class DeviceUtils {
      * @param activity
      */
     public static void cancelFullScreen(Activity activity) {
-        Window window = activity.getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        if (activity != null) {
+            Window window = activity.getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
     }
 
     /**
@@ -79,8 +82,11 @@ public class DeviceUtils {
      * @return
      */
     public static boolean isFullScreen(Activity activity) {
-        WindowManager.LayoutParams params = activity.getWindow().getAttributes();
-        return (params.flags & WindowManager.LayoutParams.FLAG_FULLSCREEN) == WindowManager.LayoutParams.FLAG_FULLSCREEN;
+        if (activity != null) {
+            WindowManager.LayoutParams params = activity.getWindow().getAttributes();
+            return (params.flags & WindowManager.LayoutParams.FLAG_FULLSCREEN) == WindowManager.LayoutParams.FLAG_FULLSCREEN;
+        }
+        return false;
     }
 
     /**
@@ -98,25 +104,14 @@ public class DeviceUtils {
      * @return 设备屏幕密度
      */
     public static float getDisplayMetrics(Activity activity) {
-        DisplayMetrics dm = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
-        return dm.density;
+        if (activity != null) {
+            DisplayMetrics dm = new DisplayMetrics();
+            activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
+            return dm.density;
+        }
+        return 0;
     }
 
-
-    /**
-     * 获得屏幕高度
-     *
-     * @param context 上下文
-     * @return 屏幕高度
-     */
-    public static int getScreenWidth(Context context) {
-        WindowManager wm = (WindowManager) context
-                .getSystemService(Context.WINDOW_SERVICE);
-        DisplayMetrics outMetrics = new DisplayMetrics();
-        wm.getDefaultDisplay().getMetrics(outMetrics);
-        return outMetrics.widthPixels;
-    }
 
     /**
      * 获得屏幕宽度
@@ -124,12 +119,32 @@ public class DeviceUtils {
      * @param context 上下文
      * @return 屏幕宽度
      */
+    public static int getScreenWidth(Context context) {
+        if (context != null) {
+            WindowManager wm = (WindowManager) context
+                    .getSystemService(Context.WINDOW_SERVICE);
+            DisplayMetrics outMetrics = new DisplayMetrics();
+            wm.getDefaultDisplay().getMetrics(outMetrics);
+            return outMetrics.widthPixels;
+        }
+        return 0;
+    }
+
+    /**
+     * 获得屏幕高度
+     *
+     * @param context 上下文
+     * @return 屏幕高度
+     */
     public static int getScreenHeight(Context context) {
-        WindowManager wm = (WindowManager) context
-                .getSystemService(Context.WINDOW_SERVICE);
-        DisplayMetrics outMetrics = new DisplayMetrics();
-        wm.getDefaultDisplay().getMetrics(outMetrics);
-        return outMetrics.heightPixels;
+        if (context != null) {
+            WindowManager wm = (WindowManager) context
+                    .getSystemService(Context.WINDOW_SERVICE);
+            DisplayMetrics outMetrics = new DisplayMetrics();
+            wm.getDefaultDisplay().getMetrics(outMetrics);
+            return outMetrics.heightPixels;
+        }
+        return 0;
     }
 
 }

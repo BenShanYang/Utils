@@ -18,7 +18,7 @@ class EmailUtils {
      * @param email email地址，格式：yangkuan@sina.com，yangkuan@xxx.com.cn，xxx代表邮件服务商
      * @return 验证成功返回true，验证失败返回false
      */
-    public static boolean checkEmail(String email) {
+    public static boolean checkEmail(CharSequence email) {
         String regex = "\\w+@\\w+\\.[a-z]+(\\.[a-z]+)?";
         return Pattern.matches(regex, email);
     }

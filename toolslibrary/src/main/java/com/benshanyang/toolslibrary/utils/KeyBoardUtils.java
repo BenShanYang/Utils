@@ -37,10 +37,10 @@ public class KeyBoardUtils {
      * 延时显示软键盘
      *
      * @param editText 针对给定的editText显示软键盘
-     * @param delay    延时时间
+     * @param isDelay  是否需要延时时间
      */
-    public static void showKeyboard(EditText editText, boolean delay) {
-        showKeyboard(editText, delay ? SHOW_KEYBOARD_DELAY_TIME : 0);
+    public static void showKeyboard(EditText editText, boolean isDelay) {
+        showKeyboard(editText, isDelay ? SHOW_KEYBOARD_DELAY_TIME : 0);
     }
 
 
@@ -92,7 +92,7 @@ public class KeyBoardUtils {
     }
 
     /**
-     * Determine if keyboard is visible
+     * 软键盘是否显示
      *
      * @param activity Activity
      * @return Whether keyboard is visible or not

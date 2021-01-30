@@ -22,7 +22,7 @@ import java.io.OutputStream;
 
 /**
  * @ClassName: SaveFile
- * @Description: 保存文件到本地
+ * @Description: 保存图片工具类
  * @Author: YangKuan
  * @Date: 2020/12/15 16:58
  */
@@ -32,7 +32,7 @@ public class SaveImageUtils {
      * 保存图片
      *
      * @param context 上下文
-     * @param bitmap  Bitmap
+     * @param bitmap  图片Bitmap
      * @return true-保存成功 false-保存失败
      */
     public static boolean savePicture(Context context, Bitmap bitmap) {
@@ -43,7 +43,7 @@ public class SaveImageUtils {
      * 保存图片
      *
      * @param context  上下文
-     * @param drawable Bitmap
+     * @param drawable 图片Drawable
      * @return true-保存成功 false-保存失败
      */
     public static boolean savePicture(Context context, Drawable drawable) {
@@ -54,7 +54,7 @@ public class SaveImageUtils {
      * 保存图片
      *
      * @param context  上下文
-     * @param drawable Bitmap
+     * @param drawable 图片Drawable
      * @param name     图片名称
      * @return true-保存成功 false-保存失败
      */
@@ -63,10 +63,10 @@ public class SaveImageUtils {
     }
 
     /**
-     * 将Bitmap保存到本地
+     * 将图片Bitmap保存到本地
      *
      * @param context 上下文
-     * @param bitmap  Bitmap
+     * @param bitmap  图片Bitmap
      * @param name    图片名称
      * @return true-保存成功 false-保存失败
      */

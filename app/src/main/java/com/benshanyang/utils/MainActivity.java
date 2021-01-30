@@ -1,12 +1,13 @@
 package com.benshanyang.utils;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.benshanyang.toolslibrary.base.BaseParentActivity;
 import com.benshanyang.toolslibrary.fingerprint.FingerprintCallback;
 import com.benshanyang.toolslibrary.fingerprint.FingerprintHelper;
-import com.benshanyang.toolslibrary.utils.NetUtils;
 
 public class MainActivity extends BaseParentActivity {
 
@@ -76,6 +77,24 @@ public class MainActivity extends BaseParentActivity {
     }
 
     public void onClick(View view) {
-
+        toActivity(SettingsActivity.class);
     }
+
+    // 退出时间
+    private long currentBackPressedTime = 0;
+    // 退出间隔
+    private static final int BACK_PRESSED_INTERVAL = 2000;
+
+    @Override
+    public void onBackPressed() {
+        // 判断时间间隔
+        if (System.currentTimeMillis() - currentBackPressedTime > BACK_PRESSED_INTERVAL) {
+            currentBackPressedTime = System.currentTimeMillis();
+            Toast.makeText(this, "再按一次返回键退出程序", Toast.LENGTH_SHORT).show();
+        } else {
+            // 退出
+            UtilsApp.manager.clearStack();//清空activity栈
+        }
+    }
+
 }

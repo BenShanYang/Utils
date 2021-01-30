@@ -22,7 +22,7 @@ import java.io.OutputStream;
 
 /**
  * @ClassName: ScreenshotUtils
- * @Description: 截图工具
+ * @Description: 截图截屏工具
  * @Author: YangKuan
  * @Date: 2020/6/22 11:43
  */
@@ -44,7 +44,7 @@ public class ScreenshotUtils {
      * 将Bitmap保存到本地
      *
      * @param context   上下文
-     * @param bmp       Bitmap
+     * @param bmp       图片Bitmap
      * @param imageName 图片名称
      * @return true-保存成功 false-保存失败
      */

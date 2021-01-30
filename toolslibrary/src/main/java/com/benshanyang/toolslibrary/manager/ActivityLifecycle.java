@@ -11,34 +11,20 @@ import androidx.annotation.NonNull;
  * @Author: YangKuan
  * @CreateDate: 2021/1/30 10:14
  */
-public class ActivityLifecycle {
+public interface ActivityLifecycle {
 
-    public final void onActivityCreated(@NonNull Activity activity, Bundle savedInstanceState) {
+    void onActivityCreated(@NonNull Activity activity, Bundle savedInstanceState);
 
-    }
+    void onActivityStarted(@NonNull Activity activity);
 
-    public void onActivityStarted(@NonNull Activity activity) {
+    void onActivityResumed(@NonNull Activity activity);
 
-    }
+    void onActivityPaused(@NonNull Activity activity);
 
-    public void onActivityResumed(@NonNull Activity activity) {
+    void onActivityStopped(@NonNull Activity activity);
 
-    }
+    void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState);
 
-    public void onActivityPaused(@NonNull Activity activity) {
-
-    }
-
-    public void onActivityStopped(@NonNull Activity activity) {
-
-    }
-
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {
-
-    }
-
-    public final void onActivityDestroyed(@NonNull Activity activity) {
-
-    }
+    void onActivityDestroyed(@NonNull Activity activity);
 
 }

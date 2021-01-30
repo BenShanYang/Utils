@@ -38,9 +38,9 @@ public class IDCardUtils {
     }
 
     /**
-     * 身份证校验
+     * 身份证号码校验
      *
-     * @param idCardNumber 需要验证的身份证
+     * @param idCardNumber 需要验证的身份证号码
      * @return true验证通过，false验证失败
      */
     public static boolean validate(String idCardNumber) {
