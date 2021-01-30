@@ -1,5 +1,5 @@
-## Utils 工具类
-[![](https://www.jitpack.io/v/BenShanYang/Utils.svg)](https://www.jitpack.io/#BenShanYang/Utils)
+# Android开发工具类-Utils
+最新版本1.0.6  [![](https://www.jitpack.io/v/BenShanYang/Utils.svg)](https://www.jitpack.io/#BenShanYang/Utils)
 
 
 ## 依赖Utils
@@ -26,6 +26,9 @@ dependencies {
 #### AppUtils
 |方法名|描述|参数描述
 |---|---|---|
-|isInstalled(Context context, String packageName)|判断是否安装某个App|context-上下文<br>packageName-包名
+|isInstalled(Context context, String packageName)|判断是否安装某个App|context-上下文<br>packageName-包名|
+|isInstalledQQ(Context context)|是否安装了QQ|context-上下文|
+|isInstalledWeiChat(Context context)|是否安装了微信|context-上下文|
+|isInstalledWeiBo(Context context)|是否安装了新浪微博|context-上下文|
 
 [Utils Api文档](https://github.com/BenShanYang/JavaDoc)
