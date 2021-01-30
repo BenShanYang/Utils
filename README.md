@@ -163,20 +163,15 @@ FingerprintHelper.Builder builder = new FingerprintHelper.Builder(activity)
                     public void onFailed(int errorCode, CharSequence errString) {
                         //指纹识别失败
                         if (errorCode == FingerprintCallback.DISABLED) {
-                            //处于指纹禁用期
-                            showToast("处于指纹禁用期");
+                            //处于指纹禁用期                            
                         } else if (errorCode == FingerprintCallback.VALIDATION_FAILED) {
-                            //多次验证指纹失败被系统禁用指纹一段时间
-                            showToast("多次验证指纹失败被系统禁用指纹一段时间");
+                            //多次验证指纹失败被系统禁用指纹一段时间                            
                         } else if (errorCode == FingerprintCallback.FINGERPRINT_READER_DISABLED) {
-                            //尝试次数过多，指纹传感器已停用
-                            showToast("尝试次数过多，指纹传感器已停用");
+                            //尝试次数过多，指纹传感器已停用                            
                         } else if (errorCode == FingerprintCallback.FINGERPRINT_CANCEL) {
-                            //指纹操作已取消
-                            showToast("指纹操作已取消");
+                            //指纹操作已取消                            
                         } else if (errorCode == FingerprintCallback.FINGERPRINT_FAILED) {
-                            //没有调用系统的回调函数
-                            showToast("没有调用系统的回调函数");
+                            //没有调用系统的回调函数                            
                         }
                     }
 
