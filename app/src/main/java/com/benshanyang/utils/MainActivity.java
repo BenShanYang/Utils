@@ -1,12 +1,10 @@
 package com.benshanyang.utils;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import com.benshanyang.toolslibrary.base.BaseParentActivity;
-import com.benshanyang.toolslibrary.dialog.LoadingDialog;
 import com.benshanyang.toolslibrary.fingerprint.FingerprintCallback;
 import com.benshanyang.toolslibrary.fingerprint.FingerprintHelper;
 
@@ -21,15 +19,6 @@ public class MainActivity extends BaseParentActivity {
     }
 
     private void initView() {
-        LoadingDialog.Builder loadBuilder = new LoadingDialog.Builder(this)
-                .setMessage("加载中...")
-                .setCancelable(true)
-                .setMessageColor(Color.WHITE)
-                .setMessageSize(14)
-                .setCancelOutside(true);
-        LoadingDialog dialog = loadBuilder.create();
-        dialog.show();
-
         FingerprintHelper.Builder builder = new FingerprintHelper.Builder(activity)
                 .callback(new FingerprintCallback() {
                     @Override
