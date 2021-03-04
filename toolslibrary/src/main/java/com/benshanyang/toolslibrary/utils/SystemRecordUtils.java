@@ -23,7 +23,7 @@ import java.util.Map;
  */
 public class SystemRecordUtils {
 
-    private static final int SYSTEM_RECORD_REQUESTCODE = 1001;//录制视频的请求码
+    public static final int SYSTEM_RECORD_REQUESTCODE = 1001;//录制视频的请求码
 
     /**
      * 视频id
