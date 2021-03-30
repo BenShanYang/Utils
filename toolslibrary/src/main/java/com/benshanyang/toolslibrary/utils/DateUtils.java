@@ -90,7 +90,7 @@ public class DateUtils {
      * 将字符串时间转换为Calendar
      *
      * @param strDate  时间字符串
-     * @param template 时间模板
+     * @param template 时间模板。例如: yyyy-MM-dd HH:mm:ss
      * @return 返回转换后的Calendar
      */
     public static Calendar stringDateToCalendar(String strDate, String template) {
@@ -111,7 +111,7 @@ public class DateUtils {
      * 将字符串时间转换为Date
      *
      * @param strDate  时间字符串
-     * @param template 时间模板
+     * @param template 时间模板。例如: yyyy-MM-dd HH:mm:ss
      * @return 返回转换后的Date
      */
     public static Date stringDateToDate(String strDate, String template) {
