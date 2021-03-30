@@ -1,8 +1,11 @@
 package com.benshanyang.toolslibrary.utils;
 
+import androidx.annotation.NonNull;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -48,5 +51,77 @@ public class DateUtils {
             e.printStackTrace();
         }
         return date != null ? date.getTime() : 0;
+    }
+
+    /**
+     * 通过Calendar获取格式化后的时间串
+     *
+     * @param calendar Calendar时间
+     * @param template 格式化模板。例如: yyyy-MM-dd HH:mm:ss
+     * @return 返回格式化后的日期格式
+     */
+    public static String formatTimeCalendar(@NonNull Calendar calendar, String template) {
+        String templateStr = "yyyy-MM-dd HH:mm:ss";
+        if (!TextUtils.isEmpty(template)) {
+            templateStr = template;
+        }
+        SimpleDateFormat format = new SimpleDateFormat(templateStr);
+        Date date = calendar.getTime();
+        return format.format(date);
+    }
+
+    /**
+     * 通过Date获取格式化后的时间串
+     *
+     * @param date     Date时间
+     * @param template 格式化模板。例如: yyyy-MM-dd HH:mm:ss
+     * @return 返回格式化后的日期格式
+     */
+    public static String formatTimeDate(@NonNull Date date, String template) {
+        String templateStr = "yyyy-MM-dd HH:mm:ss";
+        if (!TextUtils.isEmpty(template)) {
+            templateStr = template;
+        }
+        SimpleDateFormat format = new SimpleDateFormat(templateStr);
+        return format.format(date);
+    }
+
+    /**
+     * 将字符串时间转换为Calendar
+     *
+     * @param strDate  时间字符串
+     * @param template 时间模板
+     * @return 返回转换后的Calendar
+     */
+    public static Calendar stringDateToCalendar(String strDate, String template) {
+        try {
+            Calendar calendar = Calendar.getInstance();
+            DateFormat formatter = new SimpleDateFormat(template != null ? template : "");
+            Date date = formatter.parse(strDate != null ? strDate : "");
+            long timeStamp = date.getTime();
+            calendar.setTimeInMillis(timeStamp);
+            return calendar;
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 将字符串时间转换为Date
+     *
+     * @param strDate  时间字符串
+     * @param template 时间模板
+     * @return 返回转换后的Date
+     */
+    public static Date stringDateToDate(String strDate, String template) {
+        DateFormat formatter = new SimpleDateFormat(template != null ? template : "");
+        Date date = null;
+        try {
+            date = (Date) formatter.parse(strDate != null ? strDate : "");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
     }
 }
