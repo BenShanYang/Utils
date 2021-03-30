@@ -1,5 +1,5 @@
 # Android开发工具类-Utils
-最新版本1.0.7 [![](https://www.jitpack.io/v/BenShanYang/Utils.svg)](https://www.jitpack.io/#BenShanYang/Utils)
+最新版本1.0.8 [![](https://www.jitpack.io/v/BenShanYang/Utils.svg)](https://www.jitpack.io/#BenShanYang/Utils)
 
 ## 依赖Utils
 
@@ -16,7 +16,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.github.BenShanYang:Utils:1.0.7'
+    implementation 'com.github.BenShanYang:Utils:1.0.8'
 }
 ```
 
@@ -827,6 +827,10 @@ public abstract class BaseParentFragment extends Fragment {
 |---|---|---|
 |formatTimeStamp(Long timeStamp, String template)|通过时间戳获取格式化后的时间串|timeStamp-时间戳(毫秒)<br>template-格式化模板。例如: yyyy-MM-dd HH:mm:ss|
 |stringDateToTimeStamp(String strDate, String template)|将时间的字符串转换成时毫秒时间戳|strDate-时间的字符串<br>template-格式化模板,需要和时间字符串的格式匹配。例如: yyyy-MM-dd HH:mm:ss|
+|formatTimeCalendar(@NonNull Calendar calendar, String template)|通过Calendar获取格式化后的时间串|calendar-Calendar时间<br>template-格式化模板。例如: yyyy-MM-dd HH:mm:ss|
+|formatTimeDate(@NonNull Date date, String template)|通过Date获取格式化后的时间串|date-Date时间<br>template-格式化模板。例如: yyyy-MM-dd HH:mm:ss|
+|stringDateToCalendar(String strDate, String template)|将字符串时间转换为Calendar|strDate-时间字符串<br>template-时间模板|
+|stringDateToDate(String strDate, String template)|将字符串时间转换为Date|strDate-时间字符串<br>template-时间模板|
 
 #### DensityUtils - dp、px、sp相互转换工具类
 |方法名|描述|参数描述|
