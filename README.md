@@ -1,5 +1,5 @@
 # Android开发工具类-Utils
-最新版本1.0.7 [![](https://www.jitpack.io/v/BenShanYang/Utils.svg)](https://www.jitpack.io/#BenShanYang/Utils)
+最新版本1.0.8 [![](https://www.jitpack.io/v/BenShanYang/Utils.svg)](https://www.jitpack.io/#BenShanYang/Utils)
 
 ## 依赖Utils
 
@@ -16,7 +16,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.github.BenShanYang:Utils:1.0.7'
+    implementation 'com.github.BenShanYang:Utils:1.0.8'
 }
 ```
 
