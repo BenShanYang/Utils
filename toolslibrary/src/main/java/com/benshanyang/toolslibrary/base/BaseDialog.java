@@ -24,6 +24,10 @@ public abstract class BaseDialog extends Dialog {
         super(context, R.style.BaseDialogTheme);
     }
 
+    public BaseDialog(@NonNull Context context, int themeResId) {
+        super(context, themeResId);
+    }
+    
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
