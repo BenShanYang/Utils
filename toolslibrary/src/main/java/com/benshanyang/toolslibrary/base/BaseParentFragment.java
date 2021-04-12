@@ -239,7 +239,9 @@ public abstract class BaseParentFragment extends Fragment {
      */
     public void toActivity(Class<?> clazz, int requestCode) {
         if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
-            activity.startActivityForResult(new Intent(activity, clazz), requestCode);
+            Intent intent = new Intent(activity, clazz);
+            intent.putExtra("requestCode", requestCode);
+            activity.startActivityForResult(intent, requestCode);
         }
     }
 
