@@ -194,7 +194,9 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @param requestCode 请求码
      */
     public void toActivity(Class<?> clazz, int requestCode) {
-        startActivityForResult(new Intent(this, clazz), requestCode);
+        Intent intent = new Intent(this, clazz);
+        intent.putExtra("requestCode", requestCode);
+        startActivityForResult(intent, requestCode);
     }
 
     /**
