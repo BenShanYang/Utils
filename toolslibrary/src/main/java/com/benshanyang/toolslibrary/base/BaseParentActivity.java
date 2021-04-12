@@ -195,7 +195,7 @@ public abstract class BaseParentActivity extends FragmentActivity {
      */
     public void toActivity(Class<?> clazz, int requestCode) {
         Intent intent = new Intent(this, clazz);
-        intent.putExtra("requestCode", requestCode);
+        intent.putExtra("requestCode", (long)requestCode);
         startActivityForResult(intent, requestCode);
     }
 
@@ -248,7 +248,7 @@ public abstract class BaseParentActivity extends FragmentActivity {
      */
     public void toActivity(Class<?> clazz, Bundle bundle, int requestCode) {
         Intent intent = new Intent(this, clazz);
-        intent.putExtra("requestCode", requestCode);
+        intent.putExtra("requestCode", (long)requestCode);
         intent.putExtras(bundle);
         startActivityForResult(intent, requestCode);
     }
