@@ -240,7 +240,7 @@ public abstract class BaseParentFragment extends Fragment {
     public void toActivity(Class<?> clazz, int requestCode) {
         if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
             Intent intent = new Intent(activity, clazz);
-            intent.putExtra("requestCode", requestCode);
+            intent.putExtra("requestCode", (long)requestCode);
             activity.startActivityForResult(intent, requestCode);
         }
     }
@@ -287,7 +287,8 @@ public abstract class BaseParentFragment extends Fragment {
     public void toActivity(Class<?> clazz, Bundle bundle, int requestCode) {
         if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
             Intent intent = new Intent(activity, clazz);
-            intent.putExtras(bundle);
+            intent.putExtra("requestCode", (long)requestCode);
+            intent.putExtras(bundle);            
             activity.startActivityForResult(intent, requestCode);
         }
     }
