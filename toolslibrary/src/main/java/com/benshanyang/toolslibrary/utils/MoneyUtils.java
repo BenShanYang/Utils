@@ -303,5 +303,14 @@ public class MoneyUtils {
         }
         return true;
     }
+    
+    /**
+     * 格式化数字保留两位小数
+     * @param number 要被格式化的数字
+     * @return 返回被格式化后的字符串
+     */
+    public static String format(double number) {
+        return new java.text.DecimalFormat("#.00").format(number);
+    }
 
 }
