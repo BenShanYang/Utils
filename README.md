@@ -1,5 +1,5 @@
 # Android开发工具类-Utils
-最新版本1.1.1 [![](https://www.jitpack.io/v/BenShanYang/Utils.svg)](https://www.jitpack.io/#BenShanYang/Utils)
+最新版本1.1.2 [![](https://www.jitpack.io/v/BenShanYang/Utils.svg)](https://www.jitpack.io/#BenShanYang/Utils)
 
 ## 依赖Utils
 
