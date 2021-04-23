@@ -16,7 +16,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.github.BenShanYang:Utils:1.1.1'
+    implementation 'com.github.BenShanYang:Utils:1.1.2'
 }
 ```
 
