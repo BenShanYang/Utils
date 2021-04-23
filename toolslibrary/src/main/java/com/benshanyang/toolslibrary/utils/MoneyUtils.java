@@ -310,7 +310,7 @@ public class MoneyUtils {
      * @return 返回被格式化后的字符串
      */
     public static String format(double number) {
-        return new java.text.DecimalFormat("#.00").format(number);
+        return new java.text.DecimalFormat("#0.00").format(number);
     }
 
 }
