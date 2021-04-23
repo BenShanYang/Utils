@@ -126,7 +126,7 @@ public abstract class BaseParentActivity extends FragmentActivity {
         if (message != null) {
             if (toast == null) {
                 toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.BOTTOM, 0, dp2px(this, 100));
+                toast.setGravity(Gravity.BOTTOM, 0, dp2px(100));
             }
             toast.setText(message);
             toast.show();
