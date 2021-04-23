@@ -124,7 +124,7 @@ public abstract class BaseParentFragment extends Fragment {
         if (message != null) {
             if (toast == null) {
                 toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.BOTTOM, 0, dp2px(context, 100));
+                toast.setGravity(Gravity.BOTTOM, 0, dp2px(100));
             }
             toast.setText(message);
             toast.show();
