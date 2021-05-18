@@ -45,6 +45,14 @@ public class SPUtils {
         }
         return instance;
     }
+    
+    /**
+     * 获取SharedPreferences实例
+     * @return 返回实例化的SharedPreferences
+     */
+    public final static SPUtils getInstance() {
+        return instance;
+    }
 
     /**
      * 保存int类型的数据
