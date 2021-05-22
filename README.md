@@ -1,5 +1,5 @@
 # Android开发工具类-Utils
-最新版本1.1.6 [![](https://www.jitpack.io/v/BenShanYang/Utils.svg)](https://www.jitpack.io/#BenShanYang/Utils)
+最新版本1.1.7 [![](https://www.jitpack.io/v/BenShanYang/Utils.svg)](https://www.jitpack.io/#BenShanYang/Utils)
 
 ## 依赖Utils
 
@@ -16,7 +16,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.github.BenShanYang:Utils:1.1.6'
+    implementation 'com.github.BenShanYang:Utils:1.1.7'
 }
 ```
 
@@ -27,8 +27,8 @@ dependencies {
 ```java
 OnItemClickListener<T> //自定义RecyclerView的item点击回调事件
 OnItemLongClickListener<T> //自定RecyclerView的item长点击回调事件
-OnPageChangedListener //ViewPager.OnPageChangeListener的实现类，只在代码里实现onPageSelected(int position)方法，避免实现过多方法
-TextWatchListener //TextWatcher的实现类，再在代码里实现afterTextChanged(Editable s)方法，避免实现过多方法
+OnPageChangedListener //ViewPager.OnPageChangeListener的实现类，根据需求实现对应的方法，避免实现过多方法
+TextWatchListener //TextWatcher的实现类，根据需求实现对应的方法，避免实现过多方法
 ```
 ### Activity栈管理类-ActivityStackManager
 ```java
@@ -457,8 +457,8 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @param dpValue
      * @return
      */
-    public int dp2px(Context context, float dpValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
+    public int dp2px(float dpValue) {
+        final float scale = getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
 
@@ -469,8 +469,8 @@ public abstract class BaseParentActivity extends FragmentActivity {
      * @param spValue
      * @return
      */
-    public int sp2px(Context context, float spValue) {
-        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+    public int sp2px(float spValue) {
+        final float fontScale = getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5f);
     }
 
@@ -668,8 +668,8 @@ public abstract class BaseParentFragment extends Fragment {
      * @param dpValue
      * @return
      */
-    public int dp2px(Context context, float dpValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
+    public int dp2px(float dpValue) {
+        final float scale = getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
 
@@ -680,8 +680,8 @@ public abstract class BaseParentFragment extends Fragment {
      * @param spValue
      * @return
      */
-    public int sp2px(Context context, float spValue) {
-        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+    public int sp2px(float spValue) {
+        final float fontScale = getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5f);
     }
 
@@ -780,6 +780,7 @@ public abstract class BaseParentFragment extends Fragment {
 |isEmpty(CharSequence str)|判断字符串是否为空|str-输入的内容|
 |isEmpty(CharSequence str, boolean isTrim)|判断字符串是否为空|str-字符串<br>isTrim-是否将前后空格也算做内容|
 |getText(TextView textView)|获取TextView或EditText的控件内容|textView-传入TextView或EditText控件|
+|setText(TextView textView, CharSequence text)|为文字控件TextView设置文字,已判断TextView是否为null|text-文字显示控件<br>text-文字内容|
 |setText(@NonNull TextView textView, CharSequence text, float thickness)|设置字体粗细|textView-显示文字的控件<br>text-要显示的文字<br>thickness-文字的粗细程度,建议0.8f|
 |setText(@NonNull TextView textView, CharSequence text, final float thickness, @ColorInt final int color)|设置字体粗细|textView-显示文字的控件<br>text-要显示的文字<br>thickness-文字的粗细程度<br>color-文字的颜色|
 |equals(CharSequence a, CharSequence b)|判断两个字符串是否相等|a-字符串a<br>b-字符串b|
@@ -912,6 +913,7 @@ public abstract class BaseParentFragment extends Fragment {
 |round(String v, int scale)|提供精确的小数位四舍五入处理|v-需要四舍五入的数字<br>scale-小数点后保留几位|
 |round(double v, int scale, int round)|提供精确的小数位获取|v-需要处理的数字<br>scale-小数点后保留几位<br>round:BigDecimal.ROUND_DOWN - 直接删除多余的小数位,如2.35变成2.3<br>BigDecimal.ROUND_UP - 进位处理,如2.35变成2.4<br>BigDecimal.ROUND_HALF_UP - 四舍五入,如2.35变成2.4<br>BigDecimal.ROUND_HALF_DOWN - 四舍五入,如2.35变成2.3|
 |compareBigDecimal(String amount, double compare)|比较大小|amount-输入的数值<br>compare-被比较的数字|
+|format(double number)|将数值保留两位小数|number-输入的数值|
 
 #### NetUtils - 网络工具类
 |方法名|描述|参数描述|
@@ -985,6 +987,7 @@ public abstract class BaseParentFragment extends Fragment {
 |clear()|清空SP里所有数据||
 |remove(String key)|删除SP里指定key对应的数据项|key SP的键名|
 |contains(String key)|查看sp文件里面是否存在此 key|key-SP的键名|
+|getInstance()|获取SharedPreference实例||
 
 #### SystemRecordUtils - 调用系统的视频录制
 |方法名|描述|参数描述|

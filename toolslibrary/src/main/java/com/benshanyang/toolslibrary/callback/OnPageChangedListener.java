@@ -15,6 +15,11 @@ public abstract class OnPageChangedListener implements ViewPager.OnPageChangeLis
     }
 
     @Override
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
     public void onPageScrollStateChanged(int state) {
 
     }

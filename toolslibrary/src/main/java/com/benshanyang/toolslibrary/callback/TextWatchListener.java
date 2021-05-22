@@ -1,5 +1,6 @@
 package com.benshanyang.toolslibrary.callback;
 
+import android.text.Editable;
 import android.text.TextWatcher;
 
 /**
@@ -13,6 +14,11 @@ import android.text.TextWatcher;
 public abstract class TextWatchListener implements TextWatcher {
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
 
     }
 

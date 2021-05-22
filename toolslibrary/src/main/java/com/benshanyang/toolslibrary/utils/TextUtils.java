@@ -98,6 +98,18 @@ public class TextUtils {
     }
 
     /**
+     * 为TextView设置内容,已判断textview是否为null
+     *
+     * @param textView 显示文字的控件
+     * @param text     文字内容
+     */
+    public static void setText(TextView textView, CharSequence text) {
+        if (textView != null) {
+            textView.setText(text != null ? text : "");
+        }
+    }
+
+    /**
      * 设置字体粗细
      *
      * @param textView  显示文字的控件

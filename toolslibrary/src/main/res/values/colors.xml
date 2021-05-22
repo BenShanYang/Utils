@@ -2,7 +2,11 @@
 <resources>
     <color name="color_333333">#333333</color>
     <color name="color_D5D5D5">#D5D5D5</color>
+    <color name="color_F7F7F7">#F7F7F7</color>
 
+    <color name="text_color">@color/color_333333</color>
+    <!--页面背景色-->
+    <color name="layout_bg">@color/color_F7F7F7</color>
     <!--分割线颜色-->
     <color name="divider_color">@color/color_D5D5D5</color>
 
