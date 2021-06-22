@@ -3,6 +3,7 @@ package com.benshanyang.toolslibrary.utils;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.text.TextUtils;
 
 /**
  * 类描述: 剪切板 </br>
@@ -47,7 +48,7 @@ public class ClipboardUtils {
      */
     public static boolean copy(Context context, CharSequence text) {
         ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData data = ClipData.newPlainText("clipboard", text);
+        ClipData data = ClipData.newPlainText("clipboard", TextUtils.isEmpty(text) ? "" : text);
         if (cm == null || data == null) {
             return false;
         } else {

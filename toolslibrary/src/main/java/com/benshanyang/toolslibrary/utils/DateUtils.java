@@ -26,13 +26,17 @@ public class DateUtils {
      * @return 返回格式化后的日期格式
      */
     public static String formatTimeStamp(Long timeStamp, String template) {
-        String templateStr = "yyyy-MM-dd HH:mm:ss";
-        if (!TextUtils.isEmpty(template)) {
-            templateStr = template;
+        if (timeStamp != null) {
+            String templateStr = "yyyy-MM-dd HH:mm:ss";
+            if (!TextUtils.isEmpty(template)) {
+                templateStr = template;
+            }
+            SimpleDateFormat format = new SimpleDateFormat(templateStr);
+            Date date = new Date(timeStamp);
+            return format.format(date);
+        } else {
+            return "";
         }
-        SimpleDateFormat format = new SimpleDateFormat(templateStr);
-        Date date = new Date(timeStamp);
-        return format.format(date);
     }
 
     /**
@@ -61,13 +65,17 @@ public class DateUtils {
      * @return 返回格式化后的日期格式
      */
     public static String formatTimeCalendar(@NonNull Calendar calendar, String template) {
-        String templateStr = "yyyy-MM-dd HH:mm:ss";
-        if (!TextUtils.isEmpty(template)) {
-            templateStr = template;
+        if (calendar != null) {
+            String templateStr = "yyyy-MM-dd HH:mm:ss";
+            if (!TextUtils.isEmpty(template)) {
+                templateStr = template;
+            }
+            SimpleDateFormat format = new SimpleDateFormat(templateStr);
+            Date date = calendar.getTime();
+            return format.format(date);
+        } else {
+            return "";
         }
-        SimpleDateFormat format = new SimpleDateFormat(templateStr);
-        Date date = calendar.getTime();
-        return format.format(date);
     }
 
     /**
@@ -78,12 +86,16 @@ public class DateUtils {
      * @return 返回格式化后的日期格式
      */
     public static String formatTimeDate(@NonNull Date date, String template) {
-        String templateStr = "yyyy-MM-dd HH:mm:ss";
-        if (!TextUtils.isEmpty(template)) {
-            templateStr = template;
+        if (date != null) {
+            String templateStr = "yyyy-MM-dd HH:mm:ss";
+            if (!TextUtils.isEmpty(template)) {
+                templateStr = template;
+            }
+            SimpleDateFormat format = new SimpleDateFormat(templateStr);
+            return format.format(date);
+        } else {
+            return "";
         }
-        SimpleDateFormat format = new SimpleDateFormat(templateStr);
-        return format.format(date);
     }
 
     /**

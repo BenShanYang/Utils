@@ -3,6 +3,7 @@ package com.benshanyang.toolslibrary.utils;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.TextUtils;
 
 /**
  * 类描述: 判断是否是手机号 </br>
@@ -47,7 +48,7 @@ public class PhoneUtils {
             //跳转到拨号界面，用户手动点击拨打
             intent.setAction(Intent.ACTION_DIAL);
         }
-        Uri data = Uri.parse("tel:" + phoneNum);
+        Uri data = Uri.parse("tel:" + (TextUtils.isEmpty(phoneNum) ? "" : phoneNum));
         intent.setData(data);
         context.startActivity(intent);
     }
