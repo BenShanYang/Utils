@@ -135,12 +135,45 @@ public abstract class BaseParentFragment extends Fragment {
      * 弹出提示
      *
      * @param message 提示的信息
+     */
+    public void showLongToast(CharSequence message) {
+        if (message != null) {
+            if (toast == null) {
+                toast = Toast.makeText(context, message, Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.BOTTOM, 0, dp2px(100));
+            }
+            toast.setText(message);
+            toast.show();
+        }
+    }
+
+    /**
+     * 弹出提示
+     *
+     * @param message 提示的信息
      * @param gravity 位于屏幕中的位置。例: Gravity.BOTTOM
      */
     public void showToast(CharSequence message, int gravity) {
         if (message != null) {
             if (toast == null) {
                 toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
+                toast.setGravity(gravity, 0, 0);
+            }
+            toast.setText(message);
+            toast.show();
+        }
+    }
+
+    /**
+     * 弹出提示
+     *
+     * @param message 提示的信息
+     * @param gravity 位于屏幕中的位置。例: Gravity.BOTTOM
+     */
+    public void showLongToast(CharSequence message, int gravity) {
+        if (message != null) {
+            if (toast == null) {
+                toast = Toast.makeText(context, message, Toast.LENGTH_LONG);
                 toast.setGravity(gravity, 0, 0);
             }
             toast.setText(message);
@@ -170,6 +203,25 @@ public abstract class BaseParentFragment extends Fragment {
     /**
      * 弹出提示
      *
+     * @param message 提示的信息
+     * @param gravity 位于屏幕中的位置。例: Gravity.BOTTOM
+     * @param xOffset x轴上的偏移量
+     * @param yOffset y轴上的偏移量
+     */
+    public void showLongToast(CharSequence message, int gravity, int xOffset, int yOffset) {
+        if (message != null) {
+            if (toast == null) {
+                toast = Toast.makeText(context, message, Toast.LENGTH_LONG);
+                toast.setGravity(gravity, xOffset, yOffset);
+            }
+            toast.setText(message);
+            toast.show();
+        }
+    }
+
+    /**
+     * 弹出提示
+     *
      * @param text 提示的文字
      */
     public void showSnackbar(CharSequence text) {
@@ -179,6 +231,21 @@ public abstract class BaseParentFragment extends Fragment {
         }
         if (view != null) {
             Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * 弹出提示
+     *
+     * @param text 提示的文字
+     */
+    public void showLongSnackbar(CharSequence text) {
+        View view = getView();
+        if (view == null && activity != null) {
+            view = activity.findViewById(android.R.id.content);
+        }
+        if (view != null) {
+            Snackbar.make(view, text, Snackbar.LENGTH_LONG).show();
         }
     }
 
@@ -238,7 +305,7 @@ public abstract class BaseParentFragment extends Fragment {
     public void toActivity(Class<?> clazz, int requestCode) {
         if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
             Intent intent = new Intent(activity, clazz);
-            intent.putExtra("requestCode", (long)requestCode);
+            intent.putExtra("requestCode", (long) requestCode);
             activity.startActivityForResult(intent, requestCode);
         }
     }
@@ -285,8 +352,8 @@ public abstract class BaseParentFragment extends Fragment {
     public void toActivity(Class<?> clazz, Bundle bundle, int requestCode) {
         if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
             Intent intent = new Intent(activity, clazz);
-            intent.putExtra("requestCode", (long)requestCode);
-            intent.putExtras(bundle);            
+            intent.putExtra("requestCode", (long) requestCode);
+            intent.putExtras(bundle);
             activity.startActivityForResult(intent, requestCode);
         }
     }
