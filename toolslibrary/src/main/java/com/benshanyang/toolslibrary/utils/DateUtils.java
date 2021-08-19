@@ -2,6 +2,9 @@ package com.benshanyang.toolslibrary.utils;
 
 import androidx.annotation.NonNull;
 
+import com.benshanyang.toolslibrary.annotation.Week;
+import com.benshanyang.toolslibrary.annotation.WeekType;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -136,4 +139,196 @@ public class DateUtils {
         }
         return date;
     }
+
+    /**
+     * 获取星期几
+     *
+     * @return
+     */
+    @Week
+    public static int getWeek() {
+        Calendar calendar = Calendar.getInstance();
+        return calendar.get(Calendar.DAY_OF_WEEK);
+    }
+
+    /**
+     * 获取星期几
+     *
+     * @param calendar 日历
+     * @return
+     */
+    @Week
+    public static int getWeek(Calendar calendar) {
+        int dayOfWeek = 2;
+        if (calendar != null) {
+            dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        }
+        return dayOfWeek;
+    }
+
+    /**
+     * 获取星期几
+     *
+     * @param date
+     * @return
+     */
+    @Week
+    public static int getWeek(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DAY_OF_WEEK);
+    }
+
+    /**
+     * 获取星期几
+     *
+     * @param timeStamp 时间戳
+     * @return
+     */
+    @Week
+    public static int getWeek(long timeStamp) {
+        return getWeek(timeStamp + "");
+    }
+
+    /**
+     * 获取星期几
+     *
+     * @param timeStamp 时间戳
+     * @return
+     */
+    @Week
+    public static int getWeek(String timeStamp) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+
+        try {
+            calendar.setTime(format.parse(timeStamp));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        return dayOfWeek;
+    }
+
+    /**
+     * 获取星期几
+     *
+     * @param timeStamp 时间戳
+     * @param pattern   时间戳格式
+     * @return
+     */
+    @Week
+    public static int getWeek(String timeStamp, String pattern) {
+        SimpleDateFormat format = new SimpleDateFormat(pattern);
+        Calendar calendar = Calendar.getInstance();
+
+        try {
+            calendar.setTime(format.parse(timeStamp));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        return dayOfWeek;
+    }
+
+    /**
+     * 星期几字符串格式化
+     *
+     * @param week 星期几
+     * @param type 要格式化的类型  WeekType.CN-中文全称、WeekType.CN_SIMPLE-中文简称、WeekType.EN-英文全称、WeekType.EN_SIMPLE-英文简称
+     * @return
+     */
+    public static String formatWeek(@Week int week, @WeekType int type) {
+        String weekStr = "星期一";
+        switch (week) {
+            case Week.SUNDAY:
+                //周日
+                if (type == WeekType.CN) {
+                    weekStr = "星期日";
+                } else if (type == WeekType.CN_SIMPLE) {
+                    weekStr = "周日";
+                } else if (type == WeekType.EN) {
+                    weekStr = "Sunday";
+                } else if (type == WeekType.EN_SIMPLE) {
+                    weekStr = "Sun.";
+                }
+                break;
+            case Week.MONDAY:
+                //周一
+                if (type == WeekType.CN) {
+                    weekStr = "星期一";
+                } else if (type == WeekType.CN_SIMPLE) {
+                    weekStr = "周一";
+                } else if (type == WeekType.EN) {
+                    weekStr = "Monday";
+                } else if (type == WeekType.EN_SIMPLE) {
+                    weekStr = "Mon.";
+                }
+                break;
+            case Week.TUESDAY:
+                //周二
+                if (type == WeekType.CN) {
+                    weekStr = "星期二";
+                } else if (type == WeekType.CN_SIMPLE) {
+                    weekStr = "周二";
+                } else if (type == WeekType.EN) {
+                    weekStr = "Tuesda";
+                } else if (type == WeekType.EN_SIMPLE) {
+                    weekStr = "Tues.";
+                }
+                break;
+            case Week.WEDNESDAY:
+                //周三
+                if (type == WeekType.CN) {
+                    weekStr = "星期三";
+                } else if (type == WeekType.CN_SIMPLE) {
+                    weekStr = "周三";
+                } else if (type == WeekType.EN) {
+                    weekStr = "Wednesday";
+                } else if (type == WeekType.EN_SIMPLE) {
+                    weekStr = "Wed.";
+                }
+                break;
+            case Week.THURSDAY:
+                //周四
+                if (type == WeekType.CN) {
+                    weekStr = "星期四";
+                } else if (type == WeekType.CN_SIMPLE) {
+                    weekStr = "周四";
+                } else if (type == WeekType.EN) {
+                    weekStr = "Thursday";
+                } else if (type == WeekType.EN_SIMPLE) {
+                    weekStr = "Thur.";
+                }
+                break;
+            case Week.FRIDAY:
+                //周五
+                if (type == WeekType.CN) {
+                    weekStr = "星期五";
+                } else if (type == WeekType.CN_SIMPLE) {
+                    weekStr = "周五";
+                } else if (type == WeekType.EN) {
+                    weekStr = "Friday";
+                } else if (type == WeekType.EN_SIMPLE) {
+                    weekStr = "Fri.";
+                }
+                break;
+            case Week.SATURDAY:
+                //周六
+                if (type == WeekType.CN) {
+                    weekStr = "星期六";
+                } else if (type == WeekType.CN_SIMPLE) {
+                    weekStr = "周六";
+                } else if (type == WeekType.EN) {
+                    weekStr = "Saturday";
+                } else if (type == WeekType.EN_SIMPLE) {
+                    weekStr = "Sat.";
+                }
+                break;
+        }
+        return weekStr;
+    }
+
 }
