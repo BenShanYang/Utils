@@ -176,7 +176,7 @@ public class DateUtils {
      */
     @Week
     public static int getWeek(Date date) {
-        if (data != null) {
+        if (date != null) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
             return calendar.get(Calendar.DAY_OF_WEEK);
