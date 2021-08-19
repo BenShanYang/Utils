@@ -162,6 +162,8 @@ public class DateUtils {
         int dayOfWeek = 2;
         if (calendar != null) {
             dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        } else {
+            dayOfWeek = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
         }
         return dayOfWeek;
     }
@@ -174,20 +176,14 @@ public class DateUtils {
      */
     @Week
     public static int getWeek(Date date) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        return calendar.get(Calendar.DAY_OF_WEEK);
-    }
+        if (data != null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            return calendar.get(Calendar.DAY_OF_WEEK);
+        } else {
+            return Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+        }
 
-    /**
-     * 获取星期几
-     *
-     * @param timeStamp 时间戳
-     * @return
-     */
-    @Week
-    public static int getWeek(long timeStamp) {
-        return getWeek(timeStamp + "");
     }
 
     /**
@@ -198,37 +194,24 @@ public class DateUtils {
      */
     @Week
     public static int getWeek(String timeStamp) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Calendar calendar = Calendar.getInstance();
-
         try {
-            calendar.setTime(format.parse(timeStamp));
-        } catch (ParseException e) {
-            e.printStackTrace();
+            return getWeek(Long.parseLong(timeStamp));
+        } catch (Exception e) {
+            return Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
         }
-
-        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-        return dayOfWeek;
     }
 
     /**
      * 获取星期几
      *
      * @param timeStamp 时间戳
-     * @param pattern   时间戳格式
      * @return
      */
     @Week
-    public static int getWeek(String timeStamp, String pattern) {
-        SimpleDateFormat format = new SimpleDateFormat(pattern);
+    public static int getWeek(long timeStamp) {
         Calendar calendar = Calendar.getInstance();
-
-        try {
-            calendar.setTime(format.parse(timeStamp));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
+        Date date = new Date(timeStamp);
+        calendar.setTime(date);
         int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
         return dayOfWeek;
     }
