@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * @version 1.0.0
  * @since
  */
-class EmailUtils {
+public class EmailUtils {
 
     /**
      * 验证Email
