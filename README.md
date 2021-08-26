@@ -16,7 +16,10 @@ allprojects {
 
 ```groovy
 dependencies {
+    //github 依赖地址
     implementation 'com.github.BenShanYang:Utils:1.2.1'
+    //码云依赖地址
+    implementation 'com.gitee.lingluandeerha:Utils:1.2.1'
 }
 ```
 
