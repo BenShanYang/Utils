@@ -1,5 +1,5 @@
 # Android开发工具类-Utils
-最新版本1.2.1 [![](https://www.jitpack.io/v/BenShanYang/Utils.svg)](https://www.jitpack.io/#BenShanYang/Utils)
+最新版本1.2.2 [![](https://www.jitpack.io/v/BenShanYang/Utils.svg)](https://www.jitpack.io/#BenShanYang/Utils)
 
 ## 依赖Utils
 
@@ -17,9 +17,9 @@ allprojects {
 ```groovy
 dependencies {
     //github 依赖地址
-    implementation 'com.github.BenShanYang:Utils:1.2.1'
+    implementation 'com.github.BenShanYang:Utils:1.2.2'
     //码云依赖地址
-    implementation 'com.gitee.lingluandeerha:Utils:1.2.1'
+    implementation 'com.gitee.lingluandeerha:Utils:1.2.2'
 }
 ```
 
