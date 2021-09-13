@@ -775,7 +775,64 @@ public abstract class BaseParentFragment extends Fragment {
 }
 ```
 
+
+### PermissionUtil 系统申请权限的工具类
+#### 使用
+```java
+//需要申请的权限数组
+String[] permissionArr = PermissionUtil.STORAGE_PERMISSIONS;
+if (PermissionUtil.check(context, permissionArr)) {
+    //有权限
+    importData();
+} else {
+    //没有存储权限 去申请权限 Activity申请或Fragment申请
+
+    //Activity 申请权限方式
+    PermissionUtil.request(Activity.this, PermissionUtil.REQUEST_CODE, permissionArr);
+    //Fragment 申请权限方式
+    PermissionUtil.request(Fragment.this, PermissionUtil.REQUEST_CODE, permissionArr);
+}
+
+//在Activity或Fragment中实现下面方法
+@Override
+public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    //权限申请回调
+    if (requestCode == Constant.PERMISSION_REQUEST_EXPORT) {
+        //导出数据
+        if (PermissionUtil.grantResults(grantResults)) {
+            //已获取权限
+        } else {
+            //权限被拒绝 开启系统权限设置页面
+            PermissionUtil.openSetting(activity);
+        }
+    }
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+}
+```
+
+
 ## 帮助类方法解释
+
+#### PermissionUtil - 系统申请权限的工具类
+|方法名|描述|参数描述|
+|---|---|---|
+|check(@NonNull Context context, @NonNull String permission)|检查权限|context-上下文<br>permission-权限|
+|check(@NonNull Context context, @NonNull String... permissions)|批量检查权限|context-上下文<br>permissions-权限数组|
+|denied(@NonNull Context context, @NonNull String... permissions)|获取拒绝的权限集合|context-上下文<br>permissions-被检查的权限数组|
+|request(final @NonNull Activity activity, final @NonNull String... permissions)|Activity中请求权限|activity-Activity的引用<br>permissions-被检查的权限数组|
+|request(final @NonNull Activity activity, final @IntRange(from = 0) int requestCode, final @NonNull String... permissions)|Activity中请求权限|activity-Activity的引用<br>requestCode-请求码<br>permissions-被检查的权限数组|
+|request(final @NonNull Fragment fragment, final @NonNull String... permissions)|Fragment中请求权限|fragment-Fragment页面引用<br>permissions-被检查的权限数组|
+|request(final @NonNull Fragment fragment, final @IntRange(from = 0) int requestCode, final @NonNull String... permissions)|Fragment页面引用|fragment-Fragment页面引用<br>requestCode-请求码<br>permissions-被检查的权限数组|
+|grantResults(@NonNull int[] grantResults)|权限申请后，判断是否都授予权限了|grantResults-权限申请结果数组|
+|isOPenGPS(final Context context)|判断GPS是否开启|context-上下文|
+|openGPSSetting(Activity activity)|打开gps设置页面|Activity-上下文|
+|openSetting(Activity activity, String packageName)|打开权限设置页面|activity-Activity上下文<br>packageName-包名 可传入BuildConfig.APPLICATION_ID|
+|gotoOPPOPermission(Context context, String packageName)|跳转到oppo的权限管理页面|context-上下文<br>packageName-包名 可传入BuildConfig.APPLICATION_ID|
+|gotoVIVOPermission(Context context)|跳转到vivo的权限管理页面|context-上下文|
+|gotoMiuiPermission(Context context)|跳转到miui的权限管理页面|context-上下文|
+|gotoMeizuPermission(Context context, String packageName)|跳转到魅族的权限管理系统|context-上下文<br>packageName-包名 可传入BuildConfig.APPLICATION_ID|
+|gotoHuaweiPermission(Context context)|华为的权限管理页面|context-上下文|
+|getAppDetailSettingIntent(Context context)|开启安卓权限系统设置页面|context-上下文|
 
 #### TextUtils - 字符串处理工具类
 |方法名|描述|参数描述|
