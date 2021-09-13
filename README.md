@@ -776,7 +776,7 @@ public abstract class BaseParentFragment extends Fragment {
 ```
 
 
-### PermissionUtil 系统申请权限的工具类
+### PermissionUtil 申请系统权限的工具类
 #### 使用
 ```java
 //需要申请的权限数组
